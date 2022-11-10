@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bootstrap="bootstrap.php" backupGlobals="false" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd">
+  <coverage includeUncoveredFiles="true">
+    <include>
+      <directory suffix=".php">../src</directory>
+    </include>
+  </coverage>
+  <testsuites>
+    <testsuite name="AllUnitTests">
+      <directory>.</directory>
+    </testsuite>
+  </testsuites>
+</phpunit>
