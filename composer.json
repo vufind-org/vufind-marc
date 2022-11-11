@@ -28,9 +28,9 @@
     },
     "require": {
         "php": ">=7.4.1",
-        "opis/json-schema": "2.3.0",
-        "pcrov/jsonreader": "1.0.2",
-        "vufind-org/vufindcode": "1.2"
+        "opis/json-schema": "^2.3.0",
+        "pcrov/jsonreader": "^1.0.2",
+        "vufind-org/vufindcode": "^1.2"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "3.8.0",
