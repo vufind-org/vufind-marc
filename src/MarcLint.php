@@ -856,7 +856,8 @@ class MarcLint
         ];
 
         // We may or may not have additional details:
-        for ($i = 1; $i < count($rules); $i++) {
+        $ruleCount = count($rules);
+        for ($i = 1; $i < $ruleCount; $i++) {
             [$key, $value, $lineDesc] = explode(' ', $rules[$i] . ' ');
             if (substr($key, 0, 3) == 'ind') {
                 // Expand ranges:
