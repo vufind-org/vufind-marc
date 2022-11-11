@@ -6,7 +6,7 @@ Introduction
 ------------
 VuFind-Marc contains classes to handle [MARC records](https://www.loc.gov/marc/) in
 different carrier formats (ISO2709, MARCXML, MARC-in-JSON). This is part of the
-VuFind project (http://vufind.org) but may also be useful for other purposes.
+VuFind® project (http://vufind.org) but may also be useful for other purposes.
 
 
 Installation
