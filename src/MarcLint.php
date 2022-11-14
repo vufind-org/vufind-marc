@@ -176,7 +176,7 @@ class MarcLint
                         ? $fieldsSeen['880.' . $tagNo] + 1 : 1;
                 } else {
                     $this->warn("880: No subfield 6.");
-                    $tagRules = null;
+                    $tagrules = null;
                 }
             } else {
                 // Default case -- not an 880 field:
