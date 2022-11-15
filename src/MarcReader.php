@@ -109,7 +109,7 @@ class MarcReader
      * @param string|array $data MARC record in one of the supported formats, or an
      * associative array with 'leader' and 'fields' in the internal format
      *
-     * @throws Exception
+     * @throws \Exception
      * @return void
      */
     public function setData($data): void
@@ -152,6 +152,7 @@ class MarcReader
      *
      * @param string $format Format to return (e.g. 'ISO2709' or 'MARCXML')
      *
+     * @throws \Exception
      * @return string
      */
     public function toFormat(string $format): string
