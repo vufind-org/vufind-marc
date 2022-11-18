@@ -349,6 +349,38 @@ EOT;
     }
 
     /**
+     * Test MARC array format
+     *
+     * @return void
+     */
+    public function testMarcArray()
+    {
+        $marc = [
+            'leader' => 'foo',
+            'fields' => [
+                [
+                    '245' => [
+                        'ind1' => ' ',
+                        'ind2' => ' ',
+                        'subfields' => [
+                            [
+                                'a' => 'Test Record'
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ];
+        $reader = new MarcReader($marc);
+        $this->assertEquals([], $reader->getWarnings());
+        $this->assertEquals('foo', $reader->getLeader());
+        $this->assertEquals(
+            'Test Record',
+            $reader->getSubfield($reader->getField('245'), 'a')
+        );
+    }
+
+    /**
      * Test invalid record format
      *
      * @return void
