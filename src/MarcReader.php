@@ -114,6 +114,7 @@ class MarcReader
      */
     public function setData($data): void
     {
+        $this->warnings = [];
         if (is_array($data)) {
             if (!is_string($data['leader'] ?? null)
                 || !is_array($data['fields'] ?? null)
@@ -124,7 +125,6 @@ class MarcReader
             return;
         }
         $valid = false;
-        $this->warnings = [];
         foreach ($this->serializations as $serialization) {
             if ($serialization::canParse($data)) {
                 $this->data = $serialization::fromString($data);
