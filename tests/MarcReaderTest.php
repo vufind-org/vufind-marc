@@ -163,6 +163,35 @@ class MarcReaderTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
+     * Test empty field in ISO2709
+     *
+     * @return void
+     */
+    public function testEmptyFieldInSO2709()
+    {
+        $marc = "00047       00037       245000200000\x1e12\x1e\x1d";
+
+        $reader = new MarcReader($marc);
+        $field = $reader->getField('245');
+        $this->assertEquals([], $reader->getSubfields($field, 'b'));
+        $this->assertEquals(
+            [
+                'leader' => '00000       00000       ',
+                'fields' => [
+                    [
+                        '245' => [
+                            'ind1' => '1',
+                            'ind2' => '2',
+                            'subfields' => []
+                        ]
+                    ]
+                ]
+            ],
+            json_decode($reader->toFormat('JSON'), true)
+        );
+    }
+
+    /**
      * Test empty subfield in ISO2709
      *
      * @return void
@@ -174,6 +203,43 @@ class MarcReaderTest extends \PHPUnit\Framework\TestCase
         $reader = new MarcReader($marc);
         $field = $reader->getField('245');
         $this->assertEquals([], $reader->getSubfields($field, 'b'));
+    }
+
+    /**
+     * Test empty field in MARCXML serialization
+     *
+     * @return void
+     */
+    public function testEmptyFieldInMarcXmlSerialization()
+    {
+        $input = <<<EOT
+<collection xmlns="http://www.loc.gov/MARC21/slim">
+  <record>
+    <leader>00047cam a22000374i 4500</leader>
+    <datafield tag="245" ind1="1" ind2="2">
+    </datafield>
+  </record>
+</collection>
+EOT;
+
+        $reader = new MarcReader($input);
+        $field = $reader->getField('245');
+        $this->assertEquals([], $reader->getSubfields($field, 'b'));
+        $this->assertEquals(
+            [
+                'leader' => '00000cam a22000004i 4500',
+                'fields' => [
+                    [
+                        '245' => [
+                            'ind1' => '1',
+                            'ind2' => '2',
+                            'subfields' => []
+                        ]
+                    ]
+                ]
+            ],
+            json_decode($reader->toFormat('JSON'), true)
+        );
     }
 
     /**

@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
+## 1.0.2 - 2022-11-25
+
+### Added
+
+- Nothing.
+
+### Changed
+
+- Nothing.
+
+### Deprecated
+
+- Nothing.
+
+### Removed
+
+- Nothing.
+
+### Fixed
+
+- Ensure that the subfields element is added to the field array when a MARCXML or
+  ISO 2709 field without subfields is unserialized.
+
 ## 1.0.1 - 2022-11-18
 
 ### Added
