@@ -1,4 +1,5 @@
 <?php
+
 /**
  * MARC record reader class.
  *
@@ -25,6 +26,7 @@
  * @license  http://opensource.org/licenses/gpl-2.0.php GNU General Public License
  * @link     https://vufind.org/wiki/development Wiki
  */
+
 namespace VuFind\Marc;
 
 /**
@@ -116,7 +118,8 @@ class MarcReader
     {
         $this->warnings = [];
         if (is_array($data)) {
-            if (!is_string($data['leader'] ?? null)
+            if (
+                !is_string($data['leader'] ?? null)
                 || !is_array($data['fields'] ?? null)
             ) {
                 throw new \Exception('Invalid data array format provided');
@@ -215,7 +218,8 @@ class MarcReader
             }
             $subfields = [];
             foreach ($field['subfields'] ?? [] as $subfield) {
-                if ($subfieldCodes
+                if (
+                    $subfieldCodes
                     && !in_array((string)key($subfield), $subfieldCodes)
                 ) {
                     continue;
@@ -356,7 +360,8 @@ class MarcReader
             }
             $subfields = [];
             foreach ($field['subfields'] ?? [] as $subfield) {
-                if ($subfieldCodes
+                if (
+                    $subfieldCodes
                     && !in_array((string)key($subfield), $subfieldCodes)
                 ) {
                     continue;
@@ -432,7 +437,8 @@ class MarcReader
             }
             $subfields = [];
             foreach ($field['subfields'] ?? [] as $subfield) {
-                if ($subfieldCodes
+                if (
+                    $subfieldCodes
                     && !in_array((string)key($subfield), $subfieldCodes)
                 ) {
                     continue;
@@ -479,9 +485,7 @@ class MarcReader
         ?string $separator = ' '
     ): array {
         $result = [];
-        foreach ($this->getLinkedFields($fieldTag, $linkedFieldTag, $subfieldCodes)
-            as $field
-        ) {
+        foreach ($this->getLinkedFields($fieldTag, $linkedFieldTag, $subfieldCodes) as $field) {
             $subfields = $this->getSubfields($field);
             if (null !== $separator) {
                 $result[] = implode($separator, $subfields);
@@ -601,7 +605,8 @@ class MarcReader
     {
         $result = [];
         foreach ($rules as $rule) {
-            if (preg_match('/' . $rule['tag'] . '/', $tag)
+            if (
+                preg_match('/' . $rule['tag'] . '/', $tag)
                 && (!isset($rule['subfields']) || intval($tag) >= 10)
             ) {
                 $result[] = $rule;

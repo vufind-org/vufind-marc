@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Lint for MARC records
  *
@@ -31,6 +32,7 @@
  * @license   http://opensource.org/licenses/gpl-2.0.php GNU General Public License
  * @link      https://vufind.org/wiki/development Wiki
  */
+
 namespace VuFind\Marc;
 
 use VuFindCode\ISBN;
@@ -165,7 +167,8 @@ class MarcLint
                     $tagNo = substr($sub6, 0, 3);
                     $tagrules = $this->rules[$tagNo] ?? null;
                     // 880 is repeatable, but its linked field may not be
-                    if (isset($tagrules['repeatable'])
+                    if (
+                        isset($tagrules['repeatable'])
                         && $tagrules['repeatable'] == 'NR'
                         && isset($fieldsSeen['880.' . $tagNo])
                     ) {
@@ -181,7 +184,8 @@ class MarcLint
             } else {
                 // Default case -- not an 880 field:
                 $tagrules = $this->rules[$tagNo] ?? null;
-                if (isset($tagrules['repeatable']) && $tagrules['repeatable'] == 'NR'
+                if (
+                    isset($tagrules['repeatable']) && $tagrules['repeatable'] == 'NR'
                     && isset($fieldsSeen[$tagNo])
                 ) {
                     $this->warn("$tagNo: Field is not repeatable.");
@@ -333,7 +337,8 @@ class MarcLint
                 }
             } elseif ($current['code'] === 'z') {
                 // look for valid isbn in 020$z
-                if (preg_match('/^ISBN/', $data)
+                if (
+                    preg_match('/^ISBN/', $data)
                     || preg_match('/^\d*\-\d+/', $data)
                 ) {
                     // ##################################################
@@ -517,7 +522,8 @@ class MarcLint
             foreach ($subfields as $i => $current) {
                 // 245 subfield c must be preceded by / (space-/)
                 if ($current['code'] == 'c') {
-                    if ($i > 0
+                    if (
+                        $i > 0
                         && !preg_match('/\s\/$/', $subfields[$i - 1]['data'])
                     ) {
                         $this->warn("245: Subfield _c must be preceded by /");
@@ -539,7 +545,8 @@ class MarcLint
             // 245 subfield b should be preceded by space-:;= (colon, semicolon, or
             // equals sign)
             foreach ($subfields as $i => $current) {
-                if ($current['code'] == 'b' && $i > 0
+                if (
+                    $current['code'] == 'b' && $i > 0
                     && !preg_match('/ [:;=]$/', $subfields[$i - 1]['data'])
                 ) {
                     $this->warn(
@@ -604,14 +611,16 @@ class MarcLint
                     $prev = $subfields[$i - 1];
                     // case for subfield 'n' being field before this one (allows
                     // dash-space-comma)
-                    if ($prev['code'] == 'n'
+                    if (
+                        $prev['code'] == 'n'
                         && !preg_match('/(\S,$)|(\-\- ,$)/', $prev['data'])
                     ) {
                         $this->warn(
                             "245: Subfield _p must be preceded by , (comma) "
                             . "when it follows subfield _n."
                         );
-                    } elseif ($prev['code'] != 'n'
+                    } elseif (
+                        $prev['code'] != 'n'
                         && !preg_match('/(\S\.$)|(\-\- \.$)/', $prev['data'])
                     ) {
                         $this->warn(
@@ -865,7 +874,7 @@ class MarcLint
                 $this->rules[$tag][$key] = [
                     'values' => $value,
                     'hr_values' => $this->getHumanReadableIndicatorValues($value),
-                    'desc'=> $lineDesc
+                    'desc' => $lineDesc
                 ];
             } else {
                 if (strlen($key) <= 1) {

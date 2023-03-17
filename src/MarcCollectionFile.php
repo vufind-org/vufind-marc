@@ -1,4 +1,5 @@
 <?php
+
 /**
  * MARC collection class for streaming a file.
  *
@@ -25,6 +26,7 @@
  * @license  http://opensource.org/licenses/gpl-2.0.php GNU General Public License
  * @link     https://vufind.org/wiki/development Wiki
  */
+
 namespace VuFind\Marc;
 
 /**
@@ -110,7 +112,8 @@ class MarcCollectionFile implements \Iterator
         foreach ($this->serializations as $serialization) {
             if ($serialization::canParseCollectionFile($file)) {
                 $this->stream = new $serialization();
-                if ($this->stream instanceof Serialization\MessageCallbackInterface
+                if (
+                    $this->stream instanceof Serialization\MessageCallbackInterface
                 ) {
                     $this->stream->setMessageCallback($this->messageCallback);
                 }

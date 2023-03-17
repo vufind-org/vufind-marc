@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Code Data to support Lint for MARC records
  *
@@ -32,6 +33,7 @@
  * @license   http://opensource.org/licenses/gpl-2.0.php GNU General Public License
  * @link      https://vufind.org/wiki/development Wiki
  */
+
 namespace VuFind\Marc\Lint;
 
 /**
