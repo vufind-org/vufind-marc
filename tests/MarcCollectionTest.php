@@ -1,4 +1,5 @@
 <?php
+
 /**
  * MarcCollection Test Class
  *
@@ -25,6 +26,7 @@
  * @license  http://opensource.org/licenses/gpl-2.0.php GNU General Public License
  * @link     https://vufind.org/wiki/development:testing:unit_tests Wiki
  */
+
 namespace VuFind\Marc\Test;
 
 use VuFind\Marc\MarcCollection;
@@ -58,6 +60,8 @@ class MarcCollectionTest extends \PHPUnit\Framework\TestCase
 
     /**
      * Test MarcCollectionReader
+     *
+     * @param string $fixture Fixture to use
      *
      * @dataProvider collectionFixtures
      *

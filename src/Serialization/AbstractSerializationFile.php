@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Abstract base class for serialization format support classes.
  *
@@ -25,6 +26,7 @@
  * @license  http://opensource.org/licenses/gpl-2.0.php GNU General Public License
  * @link     https://vufind.org/wiki/development:plugins:record_drivers Wiki
  */
+
 namespace VuFind\Marc\Serialization;
 
 /**
@@ -36,7 +38,8 @@ namespace VuFind\Marc\Serialization;
  * @license  http://opensource.org/licenses/gpl-2.0.php GNU General Public License
  * @link     https://vufind.org/wiki/development:plugins:record_drivers Wiki
  */
-abstract class AbstractSerializationFile implements SerializationFileInterface,
+abstract class AbstractSerializationFile implements
+    SerializationFileInterface,
     MessageCallbackInterface
 {
     /**
