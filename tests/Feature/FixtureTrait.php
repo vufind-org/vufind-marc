@@ -63,7 +63,8 @@ trait FixtureTrait
     protected function getFixturePath($filename)
     {
         $realFilename = realpath($this->getFixtureDir() . $filename);
-        if (!$realFilename || !file_exists($realFilename)
+        if (
+            !$realFilename || !file_exists($realFilename)
             || !is_readable($realFilename)
         ) {
             throw new RuntimeException(

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * MarcCollection Test Class
  *
@@ -59,6 +60,8 @@ class MarcCollectionTest extends \PHPUnit\Framework\TestCase
 
     /**
      * Test MarcCollectionReader
+     *
+     * @param string $fixture Fixture to use
      *
      * @dataProvider collectionFixtures
      *
