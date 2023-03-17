@@ -1,7 +1,8 @@
 <?php
 
 $finder = new PhpCsFixer\Finder();
-$finder->in(__DIR__ . '/../src');
+$finder->in(__DIR__)
+    ->in(__DIR__ . '/../src');
 
 $rules = [
     '@PSR12' => true,
