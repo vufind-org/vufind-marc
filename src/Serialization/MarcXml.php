@@ -154,7 +154,7 @@ class MarcXml extends AbstractSerializationFile implements SerializationInterfac
             $newField = [
                 'ind1' => str_pad((string)$field['ind1'], 1),
                 'ind2' => str_pad((string)$field['ind2'], 1),
-                'subfields' => []
+                'subfields' => [],
             ];
             foreach ($field->subfield as $subfield) {
                 $newField['subfields'][]

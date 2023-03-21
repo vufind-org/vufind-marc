@@ -166,7 +166,7 @@ class Iso2709 extends AbstractSerializationFile implements SerializationInterfac
                 $newField = [
                     'ind1' => mb_substr($tagData . ' ', 0, 1, 'UTF-8'),
                     'ind2' => mb_substr($tagData . '  ', 1, 1, 'UTF-8'),
-                    'subfields' => []
+                    'subfields' => [],
                 ];
                 $subfields = explode(
                     self::SUBFIELD_INDICATOR,
@@ -180,7 +180,7 @@ class Iso2709 extends AbstractSerializationFile implements SerializationInterfac
                     // ensure proper results with multibyte characters:
                     $newField['subfields'][] = [
                         mb_substr($subfield, 0, 1, 'UTF-8')
-                            => mb_substr($subfield, 1, null, 'UTF-8')
+                            => mb_substr($subfield, 1, null, 'UTF-8'),
                     ];
                 }
                 $fields[] = [$tag => $newField];
