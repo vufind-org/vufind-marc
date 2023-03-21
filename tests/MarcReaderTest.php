@@ -83,11 +83,11 @@ class MarcReaderTest extends \PHPUnit\Framework\TestCase
 
         $field = $reader->getField('100');
         foreach ($field['subfields'] as $subfield) {
-            $this->assertTrue(is_string($subfield['code']));
+            $this->assertIsString($subfield['code']);
         }
 
         $title = $reader->getField('245');
-        $this->assertTrue(is_array($title));
+        $this->assertIsArray($title);
         $this->assertEquals(0, $title['i1']);
         $this->assertEquals(4, $title['i2']);
         $this->assertEquals('The Foo:', $reader->getSubfield($title, 'a'));
@@ -117,8 +117,8 @@ class MarcReaderTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(['Screenwriting Tip #30;'], $field505a);
 
         $subjects = $reader->getFields('650');
-        $this->assertTrue(is_array($subjects));
-        $this->assertEquals(2, count($subjects));
+        $this->assertIsArray($subjects);
+        $this->assertCount(2, $subjects);
         $this->assertEquals('Foo', $reader->getSubfield($subjects[0], 'a'));
         $this->assertEquals('Bar', $reader->getSubfield($subjects[1], 'a'));
 
@@ -184,10 +184,10 @@ class MarcReaderTest extends \PHPUnit\Framework\TestCase
                         '245' => [
                             'ind1' => '1',
                             'ind2' => '2',
-                            'subfields' => []
-                        ]
-                    ]
-                ]
+                            'subfields' => [],
+                        ],
+                    ],
+                ],
             ],
             json_decode($reader->toFormat('JSON'), true)
         );
@@ -215,14 +215,14 @@ class MarcReaderTest extends \PHPUnit\Framework\TestCase
     public function testEmptyFieldInMarcXmlSerialization()
     {
         $input = <<<EOT
-<collection xmlns="http://www.loc.gov/MARC21/slim">
-  <record>
-    <leader>00047cam a22000374i 4500</leader>
-    <datafield tag="245" ind1="1" ind2="2">
-    </datafield>
-  </record>
-</collection>
-EOT;
+            <collection xmlns="http://www.loc.gov/MARC21/slim">
+              <record>
+                <leader>00047cam a22000374i 4500</leader>
+                <datafield tag="245" ind1="1" ind2="2">
+                </datafield>
+              </record>
+            </collection>
+            EOT;
 
         $reader = new MarcReader($input);
         $field = $reader->getField('245');
@@ -235,10 +235,10 @@ EOT;
                         '245' => [
                             'ind1' => '1',
                             'ind2' => '2',
-                            'subfields' => []
-                        ]
-                    ]
-                ]
+                            'subfields' => [],
+                        ],
+                    ],
+                ],
             ],
             json_decode($reader->toFormat('JSON'), true)
         );
@@ -253,30 +253,31 @@ EOT;
     {
 //        $marc = "00047       00037       245000900000\x1e  \x1faFoo\x1f\x1e\x1d";
         $input = <<<EOT
-<collection xmlns="http://www.loc.gov/MARC21/slim">
-  <record>
-    <leader>00047cam a22000374i 4500</leader>
-    <datafield tag="245" ind1=" " ind2=" ">
-      <subfield code="a">Foo</subfield>
-      <subfield code="b"></subfield>
-    </datafield>
-  </record>
-</collection>
-EOT;
+            <collection xmlns="http://www.loc.gov/MARC21/slim">
+              <record>
+                <leader>00047cam a22000374i 4500</leader>
+                <datafield tag="245" ind1=" " ind2=" ">
+                  <subfield code="a">Foo</subfield>
+                  <subfield code="b"></subfield>
+                </datafield>
+              </record>
+            </collection>
+            EOT;
 
+        $schema = 'http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd';
         $expected = <<<EOT
-<collection xmlns="http://www.loc.gov/MARC21/slim"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd"
->
-  <record>
-    <leader>00000cam a22000004i 4500</leader>
-    <datafield tag="245" ind1=" " ind2=" ">
-      <subfield code="a">Foo</subfield>
-    </datafield>
-  </record>
-</collection>
-EOT;
+            <collection xmlns="http://www.loc.gov/MARC21/slim"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xsi:schemaLocation="{$schema}"
+            >
+              <record>
+                <leader>00000cam a22000004i 4500</leader>
+                <datafield tag="245" ind1=" " ind2=" ">
+                  <subfield code="a">Foo</subfield>
+                </datafield>
+              </record>
+            </collection>
+            EOT;
 
         $reader = new MarcReader($input);
         $this->assertXmlStringEqualsXmlString(
@@ -432,12 +433,12 @@ EOT;
                         'ind2' => ' ',
                         'subfields' => [
                             [
-                                'a' => 'Test Record'
-                            ]
-                        ]
-                    ]
-                ]
-            ]
+                                'a' => 'Test Record',
+                            ],
+                        ],
+                    ],
+                ],
+            ],
         ];
         $reader = new MarcReader($marc);
         $this->assertEquals([], $reader->getWarnings());
@@ -483,15 +484,15 @@ EOT;
     public function testInvalidTagSerialization()
     {
         $marc = <<<EOT
-<record>
-  <datafield tag="12">
-    <subfield code="a">Foo</subfield>
-  </datafield>
-  <datafield tag="245">
-    <subfield code="a">Bar</subfield>
-  </datafield>
-</record>
-EOT;
+            <record>
+              <datafield tag="12">
+                <subfield code="a">Foo</subfield>
+              </datafield>
+              <datafield tag="245">
+                <subfield code="a">Bar</subfield>
+              </datafield>
+            </record>
+            EOT;
 
         $reader = new MarcReader($marc);
         $this->assertEquals(['Foo'], $reader->getFieldsSubfields('12', ['a']));
@@ -529,7 +530,7 @@ EOT;
                 ],
                 [
                     'tag' => '880',
-                ]
+                ],
             ]
         );
 
@@ -579,7 +580,7 @@ EOT;
                 'Law Library',
                 'Second Floor',
                 'KF105 .F3',
-                '33940000424836'
+                '33940000424836',
             ],
             $reader->getSubfields($reader->getField('852'))
         );
@@ -587,7 +588,7 @@ EOT;
         // We can't check for e.g. the last 852 since it will be garbled due to the
         // ISO2709 directory overflowing, but at least we can check the field count:
         $fields = $reader->getFields('852');
-        $this->assertEquals(2046, count($fields));
+        $this->assertCount(2046, $fields);
 
         // Test that the records can still be serialized to MARCXML:
         $xml = $reader->toFormat('MARCXML');

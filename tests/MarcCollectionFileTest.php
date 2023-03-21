@@ -210,11 +210,11 @@ class MarcCollectionFileTest extends \PHPUnit\Framework\TestCase
             [
                 [
                     'msg' => 'Unknown namespace "http://vufind.org/bad" for element "/collection/record"',
-                    'level' => E_NOTICE
+                    'level' => E_NOTICE,
                 ],
                 [
                     'msg' => 'Unknown element "/collection/item"',
-                    'level' => E_NOTICE
+                    'level' => E_NOTICE,
                 ],
             ],
             $messages

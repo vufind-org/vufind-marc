@@ -79,85 +79,85 @@ class MarcLintTest extends \PHPUnit\Framework\TestCase
             [
                 ['020: Subfield a has the wrong number of digits, 154879473.'],
                  // too few digits
-                '<datafield tag="020" ind1=" " ind2=" "><subfield code="a">154879473</subfield></datafield>'
+                '<datafield tag="020" ind1=" " ind2=" "><subfield code="a">154879473</subfield></datafield>',
             ],
             [
                 ['020: Subfield a has bad checksum, 1548794743.'],
                 // invalid checksum
-                '<datafield tag="020" ind1=" " ind2=" "><subfield code="a">1548794743</subfield></datafield>'
+                '<datafield tag="020" ind1=" " ind2=" "><subfield code="a">1548794743</subfield></datafield>',
             ],
             [
                 ['020: Subfield a has the wrong number of digits, 15487947443.'],
                 // 11 digits
-                '<datafield tag="020" ind1=" " ind2=" "><subfield code="a">15487947443</subfield></datafield>'
+                '<datafield tag="020" ind1=" " ind2=" "><subfield code="a">15487947443</subfield></datafield>',
             ],
             [
                 ['020: Subfield a has the wrong number of digits, 15487947443324.'],
                 // 14 digits
-                '<datafield tag="020" ind1=" " ind2=" "><subfield code="a">15487947443324</subfield></datafield>'
+                '<datafield tag="020" ind1=" " ind2=" "><subfield code="a">15487947443324</subfield></datafield>',
             ],
             [
                 [],
                 // 13 digit valid
-                '<datafield tag="020" ind1=" " ind2=" "><subfield code="a">9781548794743</subfield></datafield>'
+                '<datafield tag="020" ind1=" " ind2=" "><subfield code="a">9781548794743</subfield></datafield>',
             ],
             [
                 ['020: Subfield a has bad checksum (13 digit), 9781548794745.'],
                 // 13 digit invalid
-                '<datafield tag="020" ind1=" " ind2=" "><subfield code="a">9781548794745</subfield></datafield>'
+                '<datafield tag="020" ind1=" " ind2=" "><subfield code="a">9781548794745</subfield></datafield>',
             ],
             [
                 [],
                 // 10 digit valid with qualifier
                 '<datafield tag="020" ind1=" " ind2=" ">'
-                . '<subfield code="a">1548794740 (10 : good checksum)</subfield></datafield>'
+                . '<subfield code="a">1548794740 (10 : good checksum)</subfield></datafield>',
             ],
             [
                 ['020: Subfield a has bad checksum, 1548794745 (10 : bad checksum).'],
                 // 10 digit invalid with qualifier
                 '<datafield tag="020" ind1=" " ind2=" ">'
-                . '<subfield code="a">1548794745 (10 : bad checksum)</subfield></datafield>'
+                . '<subfield code="a">1548794745 (10 : bad checksum)</subfield></datafield>',
             ],
             [
                 ['020: Subfield a may have invalid characters.'],
                 // 10 digit invalid with hyphens and qualifier
                 '<datafield tag="020" ind1=" " ind2=" ">'
-                . '<subfield code="a">1-54879-474-0 (hyphens and good checksum)</subfield></datafield>'
+                . '<subfield code="a">1-54879-474-0 (hyphens and good checksum)</subfield></datafield>',
             ],
             [
                 [
                     '020: Subfield a may have invalid characters.',
-                    '020: Subfield a has bad checksum, 1-54879-474-5 (hyphens and bad checksum).'
+                    '020: Subfield a has bad checksum, 1-54879-474-5 (hyphens and bad checksum).',
                 ],
                 // 10 digit invalid with hyphens and qualifier
                 '<datafield tag="020" ind1=" " ind2=" ">'
-                . '<subfield code="a">1-54879-474-5 (hyphens and bad checksum)</subfield></datafield>'
+                . '<subfield code="a">1-54879-474-5 (hyphens and bad checksum)</subfield></datafield>',
             ],
             [
                 ['020: Subfield a qualifier must be preceded by space, 1548794740(10 : unspaced qualifier).'],
                  // 10 valid without space before qualifier
                 '<datafield tag="020" ind1=" " ind2=" ">'
-                . '<subfield code="a">1548794740(10 : unspaced qualifier)</subfield></datafield>'
+                . '<subfield code="a">1548794740(10 : unspaced qualifier)</subfield></datafield>',
             ],
             [
                 [
                     '020: Subfield a qualifier must be preceded by space, 1548794745(10 : '
                     . 'unspaced qualifier : bad checksum).',
-                    '020: Subfield a has bad checksum, 1548794745(10 : unspaced qualifier : bad checksum).'
+                    '020: Subfield a has bad checksum, 1548794745(10 : unspaced qualifier : bad checksum).',
                 ],
                 // 10 invalid without space before qualifier
                 '<datafield tag="020" ind1=" " ind2=" ">'
-                . '<subfield code="a">1548794745(10 : unspaced qualifier : bad checksum)</subfield></datafield>'
+                . '<subfield code="a">1548794745(10 : unspaced qualifier : bad checksum)</subfield></datafield>',
             ],
             [
                 [],
                 // subfield z
-                '<datafield tag="020" ind1=" " ind2=" "><subfield code="z">1548794743</subfield></datafield>'
+                '<datafield tag="020" ind1=" " ind2=" "><subfield code="z">1548794743</subfield></datafield>',
             ],
             [
                 ['020:  Subfield z is numerically valid.'],
                 // subfield z with valid checsum
-                '<datafield tag="020" ind1=" " ind2=" "><subfield code="z">ISBN 1548794740</subfield></datafield>'
+                '<datafield tag="020" ind1=" " ind2=" "><subfield code="z">ISBN 1548794740</subfield></datafield>',
             ],
         ];
     }
@@ -199,12 +199,12 @@ class MarcLintTest extends \PHPUnit\Framework\TestCase
                     '041: Subfield _h, far, may be obsolete.',
                 ],
                 <<<EOT
-<datafield tag="041" ind1="0" ind2=" ">
-    <subfield code="a">end</subfield>  <!-- invalid -->
-    <subfield code="a">span</subfield> <!-- too long -->
-    <subfield code="h">far</subfield>  <!-- obsolete -->
-</datafield>
-EOT
+                    <datafield tag="041" ind1="0" ind2=" ">
+                        <subfield code="a">end</subfield>  <!-- invalid -->
+                        <subfield code="a">span</subfield> <!-- too long -->
+                        <subfield code="h">far</subfield>  <!-- obsolete -->
+                    </datafield>
+                    EOT,
             ],
             [
                 [
@@ -215,11 +215,11 @@ EOT
                     . '(spanowpalasba).',
                 ],
                 <<<EOT
-<datafield tag="041" ind1="1" ind2=" ">
-    <subfield code="a">endorviwo</subfield>     <!-- invalid -->
-    <subfield code="a">spanowpalasba</subfield> <!-- too long and invalid -->
-</datafield>
-EOT
+                    <datafield tag="041" ind1="1" ind2=" ">
+                        <subfield code="a">endorviwo</subfield>     <!-- invalid -->
+                        <subfield code="a">spanowpalasba</subfield> <!-- too long and invalid -->
+                    </datafield>
+                    EOT,
             ],
         ];
     }
@@ -232,16 +232,16 @@ EOT
     public function testCheck043()
     {
         $xml = <<<EOT
-<record>
-    <datafield tag="043" ind1=" " ind2=" ">
-        <subfield code="a">n-----</subfield>   <!-- 6 chars vs. 7 -->
-        <subfield code="a">n-us----</subfield> <!-- 8 chars vs. 7 -->
-        <subfield code="a">n-ma-us</subfield>  <!-- invalid code -->
-        <subfield code="a">e-ur-ai</subfield>  <!-- obsolete code -->
-        <subfield code="c">us</subfield>       <!-- subfield c -->
-    </datafield>
-</record>
-EOT;
+            <record>
+                <datafield tag="043" ind1=" " ind2=" ">
+                    <subfield code="a">n-----</subfield>   <!-- 6 chars vs. 7 -->
+                    <subfield code="a">n-us----</subfield> <!-- 8 chars vs. 7 -->
+                    <subfield code="a">n-ma-us</subfield>  <!-- invalid code -->
+                    <subfield code="a">e-ur-ai</subfield>  <!-- obsolete code -->
+                    <subfield code="c">us</subfield>       <!-- subfield c -->
+                </datafield>
+            </record>
+            EOT;
 
         $record = new MarcReader($xml);
         $lint = new MarcLint();
@@ -288,213 +288,214 @@ EOT;
         return [
             [
                 [],
-                '<datafield tag="245" ind1="0" ind2="0"><subfield code="a">Subfield a.</subfield></datafield>'
+                '<datafield tag="245" ind1="0" ind2="0"><subfield code="a">Subfield a.</subfield></datafield>',
             ],
             [
                 [
                     '245: Must have a subfield _a.',
-                    '245: First subfield must be _a, but it is _b'
+                    '245: First subfield must be _a, but it is _b',
                 ],
-                '<datafield tag="245" ind1="0" ind2="0"><subfield code="b">no subfield a.</subfield></datafield>'
+                '<datafield tag="245" ind1="0" ind2="0"><subfield code="b">no subfield a.</subfield></datafield>',
             ],
             [
                 ['245: Must end with . (period).'],
-                '<datafield tag="245" ind1="0" ind2="0"><subfield code="a">No period at end</subfield></datafield>'
+                '<datafield tag="245" ind1="0" ind2="0"><subfield code="a">No period at end</subfield></datafield>',
             ],
             [
                 [
                     '245: MARC21 allows ? or ! as final punctuation but LCRI 1.0C, Nov. 2003 '
-                    . '(LCPS 1.7.1 for RDA records), requires period.'
+                    . '(LCPS 1.7.1 for RDA records), requires period.',
                 ],
                 '<datafield tag="245" ind1="0" ind2="0">'
-                . '<subfield code="a">Other punctuation not followed by period!</subfield></datafield>'
+                . '<subfield code="a">Other punctuation not followed by period!</subfield></datafield>',
             ],
             [
                 [
                     '245: MARC21 allows ? or ! as final punctuation but LCRI 1.0C, Nov. 2003 '
-                    . '(LCPS 1.7.1 for RDA records), requires period.'
+                    . '(LCPS 1.7.1 for RDA records), requires period.',
                 ],
                 '<datafield tag="245" ind1="0" ind2="0">'
-                . '<subfield code="a">Other punctuation not followed by period?</subfield></datafield>'
+                . '<subfield code="a">Other punctuation not followed by period?</subfield></datafield>',
             ],
             [
                 ['245: Subfield _c must be preceded by /'],
                 '<datafield tag="245" ind1="0" ind2="0">'
                 . '<subfield code="a">Precedes sub c</subfield><subfield code="c">not preceded by space-slash.'
-                . '</subfield></datafield>'
+                . '</subfield></datafield>',
             ],
             [
                 ['245: Subfield _c must be preceded by /'],
                 '<datafield tag="245" ind1="0" ind2="0"><subfield code="a">Precedes sub c/</subfield>'
-                . '<subfield code="c">not preceded by space-slash.</subfield></datafield>'
+                . '<subfield code="c">not preceded by space-slash.</subfield></datafield>',
             ],
             [
                 ['245: Subfield _c initials should not have a space.'],
                 '<datafield tag="245" ind1="0" ind2="0"><subfield code="a">Precedes sub c /</subfield>'
-                . '<subfield code="c">initials in sub c B. B.</subfield></datafield>'
+                . '<subfield code="c">initials in sub c B. B.</subfield></datafield>',
             ],
             [
                 [],
                 '<datafield tag="245" ind1="0" ind2="0"><subfield code="a">Precedes sub c /</subfield>'
-                . '<subfield code="c">initials in sub c B.B. (no warning).</subfield></datafield>'
+                . '<subfield code="c">initials in sub c B.B. (no warning).</subfield></datafield>',
             ],
             [
                 ['245: Subfield _b should be preceded by space-colon, space-semicolon, or space-equals sign.'],
                 '<datafield tag="245" ind1="0" ind2="0"><subfield code="a">Precedes sub b</subfield>'
-                . '<subfield code="b">not preceded by proper punctuation.</subfield></datafield>'
+                . '<subfield code="b">not preceded by proper punctuation.</subfield></datafield>',
             ],
             [
                 ['245: Subfield _b should be preceded by space-colon, space-semicolon, or space-equals sign.'],
                 '<datafield tag="245" ind1="0" ind2="0"><subfield code="a">Precedes sub b=</subfield>'
-                . '<subfield code="b">not preceded by proper punctuation.</subfield></datafield>'
+                . '<subfield code="b">not preceded by proper punctuation.</subfield></datafield>',
             ],
             [
                 ['245: Subfield _b should be preceded by space-colon, space-semicolon, or space-equals sign.'],
                 '<datafield tag="245" ind1="0" ind2="0"><subfield code="a">Precedes sub b:</subfield>'
-                . '<subfield code="b">not preceded by proper punctuation.</subfield></datafield>'
+                . '<subfield code="b">not preceded by proper punctuation.</subfield></datafield>',
             ],
             [
                 ['245: Subfield _b should be preceded by space-colon, space-semicolon, or space-equals sign.'],
                 '<datafield tag="245" ind1="0" ind2="0"><subfield code="a">Precedes sub b;</subfield>'
-                . '<subfield code="b">not preceded by proper punctuation.</subfield></datafield>'
+                . '<subfield code="b">not preceded by proper punctuation.</subfield></datafield>',
             ],
             [
                 [],
                 '<datafield tag="245" ind1="0" ind2="0"><subfield code="a">Precedes sub b =</subfield>'
-                . '<subfield code="b">preceded by proper punctuation.</subfield></datafield>'
+                . '<subfield code="b">preceded by proper punctuation.</subfield></datafield>',
             ],
             [
                 [],
                 '<datafield tag="245" ind1="0" ind2="0"><subfield code="a">Precedes sub b :</subfield>'
-                . '<subfield code="b">preceded by proper punctuation.</subfield></datafield>'
+                . '<subfield code="b">preceded by proper punctuation.</subfield></datafield>',
             ],
             [
                 [],
                 '<datafield tag="245" ind1="0" ind2="0"><subfield code="a">Precedes sub b ;</subfield>'
-                . '<subfield code="b">preceded by proper punctuation.</subfield></datafield>'
+                . '<subfield code="b">preceded by proper punctuation.</subfield></datafield>',
             ],
             [
                 ['245: Subfield _h should not be preceded by space.'],
                 '<datafield tag="245" ind1="0" ind2="0"><subfield code="a">Precedes sub h </subfield>'
-                . '<subfield code="h">[videorecording].</subfield></datafield>'
+                . '<subfield code="h">[videorecording].</subfield></datafield>',
             ],
             [
                 [],
                 '<datafield tag="245" ind1="0" ind2="0"><subfield code="a">Precedes sub h-- </subfield>'
                 . '<subfield code="h">[videorecording] :</subfield>'
-                . '<subfield code="b">with elipses dash before h.</subfield></datafield>'
+                . '<subfield code="b">with elipses dash before h.</subfield></datafield>',
             ],
             [
                 ['245: Subfield _h must have matching square brackets, videorecording :.'],
                 '<datafield tag="245" ind1="0" ind2="0"><subfield code="a">Precedes sub h-- </subfield>'
                 . '<subfield code="h">videorecording :</subfield>'
-                . '<subfield code="b">without brackets around GMD.</subfield></datafield>'
+                . '<subfield code="b">without brackets around GMD.</subfield></datafield>',
             ],
             [
                 [],
                 '<datafield tag="245" ind1="0" ind2="0"><subfield code="a">Precedes sub n.</subfield>'
-                . '<subfield code="n">Number 1.</subfield></datafield>'
+                . '<subfield code="n">Number 1.</subfield></datafield>',
             ],
             [
                 ['245: Subfield _n must be preceded by . (period).'],
                 '<datafield tag="245" ind1="0" ind2="0"><subfield code="a">Precedes sub n</subfield>'
-                . '<subfield code="n">Number 2.</subfield></datafield>'
+                . '<subfield code="n">Number 2.</subfield></datafield>',
             ],
             [
                 ['245: Subfield _p must be preceded by , (comma) when it follows subfield _n.'],
                 '<datafield tag="245" ind1="0" ind2="0"><subfield code="a">Precedes sub n.</subfield>'
                 . '<subfield code="n">Number 3.</subfield><subfield code="p">Sub n has period not comma.</subfield>'
-                . '</datafield>'
+                . '</datafield>',
             ],
             [
                 [],
                 '<datafield tag="245" ind1="0" ind2="0"><subfield code="a">Precedes sub n.</subfield>'
-                . '<subfield code="n">Number 3,</subfield><subfield code="p">Sub n has comma.</subfield></datafield>'
+                . '<subfield code="n">Number 3,</subfield><subfield code="p">Sub n has comma.</subfield></datafield>',
             ],
             [
                 [],
                 '<datafield tag="245" ind1="0" ind2="0"><subfield code="a">Precedes sub p.</subfield>'
-                . '<subfield code="p">Sub a has period.</subfield></datafield>'
+                . '<subfield code="p">Sub a has period.</subfield></datafield>',
             ],
             [
                 ['245: Subfield _p must be preceded by . (period) when it follows a subfield other than _n.'],
                 '<datafield tag="245" ind1="0" ind2="0"><subfield code="a">Precedes sub p</subfield>'
-                . '<subfield code="p">Sub a has no period.</subfield></datafield>'
+                . '<subfield code="p">Sub a has no period.</subfield></datafield>',
             ],
             [
                 ['245: Non-filing indicator is non-numeric'],
                 '<datafield tag="245" ind1="0" ind2="a">'
-                . '<subfield code="a">Invalid filing indicator.</subfield></datafield>'
+                . '<subfield code="a">Invalid filing indicator.</subfield></datafield>',
             ],
             [
                 ['245: First word, the, may be an article, check 2nd indicator (0).'],
-                '<datafield tag="245" ind1="0" ind2="0"><subfield code="a">The article.</subfield></datafield>'
+                '<datafield tag="245" ind1="0" ind2="0"><subfield code="a">The article.</subfield></datafield>',
             ],
             [
                 [],
-                '<datafield tag="245" ind1="0" ind2="4"><subfield code="a">The article.</subfield></datafield>'
+                '<datafield tag="245" ind1="0" ind2="4"><subfield code="a">The article.</subfield></datafield>',
             ],
             [
                 ['245: First word, an, may be an article, check 2nd indicator (2).'],
-                '<datafield tag="245" ind1="0" ind2="2"><subfield code="a">An article.</subfield></datafield>'
+                '<datafield tag="245" ind1="0" ind2="2"><subfield code="a">An article.</subfield></datafield>',
             ],
             [
                 ['245: First word, l, may be an article, check 2nd indicator (0).'],
-                '<datafield tag="245" ind1="0" ind2="0"><subfield code="a">L&apos;article.</subfield></datafield>'
+                '<datafield tag="245" ind1="0" ind2="0"><subfield code="a">L&apos;article.</subfield></datafield>',
             ],
             [
                 ['245: First word, a, does not appear to be an article, check 2nd indicator (2).'],
-                '<datafield tag="245" ind1="0" ind2="2"><subfield code="a">A la mode.</subfield></datafield>'
+                '<datafield tag="245" ind1="0" ind2="2"><subfield code="a">A la mode.</subfield></datafield>',
             ],
             [
                 [],
                 '<datafield tag="245" ind1="0" ind2="5">'
-                . '<subfield code="a">The &quot;quoted article&quot;.</subfield></datafield>'
+                . '<subfield code="a">The &quot;quoted article&quot;.</subfield></datafield>',
             ],
             [
                 [],
                 '<datafield tag="245" ind1="0" ind2="5">'
-                . '<subfield code="a">The (parenthetical article).</subfield></datafield>'
+                . '<subfield code="a">The (parenthetical article).</subfield></datafield>',
             ],
             [
                 [],
                 '<datafield tag="245" ind1="0" ind2="6">'
-                . '<subfield code="a">(The) article in parentheses).</subfield></datafield>'
+                . '<subfield code="a">(The) article in parentheses).</subfield></datafield>',
             ],
             [
                 [],
                 '<datafield tag="245" ind1="0" ind2="9">'
                 . '<subfield code="a">&quot;(The)&quot; &apos;article&apos; in quotes and parentheses).</subfield>'
-                . '</datafield>'
+                . '</datafield>',
             ],
             [
                 [],
-                '<datafield tag="245" ind1="0" ind2="5"><subfield code="a">[The supplied title].</subfield></datafield>'
+                '<datafield tag="245" ind1="0" ind2="5">'
+                . '<subfield code="a">[The supplied title].</subfield></datafield>',
             ],
             [
                 [
                     '245: Must have a subfield _a.',
                     '245: Must end with . (period).',
-                    '245: May have too few subfields.'
+                    '245: May have too few subfields.',
                 ],
-                '<datafield tag="245" ind1="0" ind2="0"><subfield code="6">sub6</subfield></datafield>'
+                '<datafield tag="245" ind1="0" ind2="0"><subfield code="6">sub6</subfield></datafield>',
             ],
             [
                 [
                     '245: Must end with . (period).',
-                    '245: First subfield must be _6, but it is a'
+                    '245: First subfield must be _6, but it is a',
                 ],
                 '<datafield tag="245" ind1="0" ind2="0"><subfield code="a">Subfield a.</subfield>'
-                . '<subfield code="6">sub6</subfield></datafield>'
+                . '<subfield code="6">sub6</subfield></datafield>',
             ],
             [
                 [
                     '245: Must have a subfield _a.',
                     '245: First subfield after subfield _6 must be _a, but it is _b',
-                    '245: Subfield _b should be preceded by space-colon, space-semicolon, or space-equals sign.'
+                    '245: Subfield _b should be preceded by space-colon, space-semicolon, or space-equals sign.',
                 ],
                 '<datafield tag="245" ind1="0" ind2="0"><subfield code="6">sub6</subfield>'
-                . '<subfield code="b">Subfield b.</subfield></datafield>'
+                . '<subfield code="b">Subfield b.</subfield></datafield>',
             ],
         ];
     }
@@ -550,7 +551,7 @@ EOT;
             '245: Indicator 1 must be 0 or 1 but it\'s "9"',
             '245: Subfield _a is not repeatable.',
             '260: Subfield _r is not allowed.',
-            '856: Indicator 2 must be blank, 0, 1, 2 or 8 but it\'s "3"'
+            '856: Indicator 2 must be blank, 0, 1, 2 or 8 but it\'s "3"',
         ];
         $this->assertEquals($expected, $lint->checkRecord($record));
 
@@ -589,7 +590,7 @@ EOT;
             'checkArticle',
             [
                 $record->getField($input['tag']),
-                $record
+                $record,
             ]
         );
         $this->assertEquals(
@@ -610,29 +611,29 @@ EOT;
                 [],
                 [
                     'tag' => '130',
-                    'data' => '<datafield tag="130" ind1="0" ind2=" "><subfield code="a">Foo</subfield></datafield>'
-                ]
+                    'data' => '<datafield tag="130" ind1="0" ind2=" "><subfield code="a">Foo</subfield></datafield>',
+                ],
             ],
             [
                 ['130: Non-filing indicator is out of range'],
                 [
                     'tag' => '130',
-                    'data' => '<datafield tag="130" ind1="5" ind2=" "><subfield code="a">Foo</subfield></datafield>'
-                ]
+                    'data' => '<datafield tag="130" ind1="5" ind2=" "><subfield code="a">Foo</subfield></datafield>',
+                ],
             ],
             [
                 ['130: Non-filing indicator is non-numeric'],
                 [
                     'tag' => '130',
-                    'data' => '<datafield tag="130" ind1=" " ind2=" "><subfield code="a">Foo</subfield></datafield>'
-                ]
+                    'data' => '<datafield tag="130" ind1=" " ind2=" "><subfield code="a">Foo</subfield></datafield>',
+                ],
             ],
             [
                 ['Internal error: 650 is not a valid field for article checking'],
                 [
                     'tag' => '650',
-                    'data' => '<datafield tag="650" ind1=" " ind2=" "><subfield code="a">Foo</subfield></datafield>'
-                ]
+                    'data' => '<datafield tag="650" ind1=" " ind2=" "><subfield code="a">Foo</subfield></datafield>',
+                ],
             ],
         ];
     }
@@ -651,7 +652,7 @@ EOT;
             '999     R       LOCAL',
             'ind1    0-9     Undefined',
             'ind2    0-9     Undefined',
-            'a-c     R       Undefined'
+            'a-c     R       Undefined',
         ];
         $expected = [
             'repeatable' => '',
@@ -685,7 +686,7 @@ EOT;
             $lint,
             'processRuleGroup',
             [
-                $ruleGroup
+                $ruleGroup,
             ]
         );
         $rules = $this->getProperty($lint, 'rules');

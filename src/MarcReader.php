@@ -234,7 +234,7 @@ class MarcReader
                     'tag' => $fieldTag,
                     'i1' => $field['ind1'],
                     'i2' => $field['ind2'],
-                    'subfields' => $subfields
+                    'subfields' => $subfields,
                 ];
             }
         }
@@ -268,7 +268,7 @@ class MarcReader
                 // Control field
                 $result[] = [
                     'tag' => $tag,
-                    'data' => $field
+                    'data' => $field,
                 ];
                 continue;
             }
@@ -284,7 +284,7 @@ class MarcReader
                     'tag' => $tag,
                     'i1' => $field['ind1'],
                     'i2' => $field['ind2'],
-                    'subfields' => $subfields
+                    'subfields' => $subfields,
                 ];
             }
         }
@@ -454,7 +454,7 @@ class MarcReader
                     'i1' => $field['ind1'],
                     'i2' => $field['ind2'],
                     'subfields' => $subfields,
-                    'link' => $link
+                    'link' => $link,
                 ];
             }
         }
@@ -523,7 +523,7 @@ class MarcReader
             'field' => $targetParts[0],
             'occurrence' => $targetParts[1] ?? '',
             'script' => $linkParts[1] ?? '',
-            'orientation' => $linkParts[2] ?? ''
+            'orientation' => $linkParts[2] ?? '',
         ];
     }
 
@@ -588,7 +588,7 @@ class MarcReader
         return new MarcReader(
             [
                 'leader' => $this->data['leader'],
-                'fields' => $resultFields
+                'fields' => $resultFields,
             ]
         );
     }
