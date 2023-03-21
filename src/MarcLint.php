@@ -935,7 +935,6 @@ class MarcLint
      */
     protected function getRawRules()
     {
-        // @codingStandardsIgnoreStart
         return <<<'RULES'
             001     NR      CONTROL NUMBER
             ind1    blank   Undefined
@@ -4292,6 +4291,5 @@ class MarcLint
             a       NR      Content of non-MARC field
             2       NR      Source of data
             RULES;
-        // @codingStandardsIgnoreEnd
     }
 }
