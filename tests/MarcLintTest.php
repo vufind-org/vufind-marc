@@ -469,7 +469,8 @@ class MarcLintTest extends \PHPUnit\Framework\TestCase
             ],
             [
                 [],
-                '<datafield tag="245" ind1="0" ind2="5"><subfield code="a">[The supplied title].</subfield></datafield>',
+                '<datafield tag="245" ind1="0" ind2="5">'
+                . '<subfield code="a">[The supplied title].</subfield></datafield>',
             ],
             [
                 [
