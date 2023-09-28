@@ -29,6 +29,11 @@
 
 namespace VuFind\Marc\Serialization;
 
+use function array_slice;
+use function count;
+use function is_string;
+use function strlen;
+
 /**
  * MARCXML format support class.
  *
@@ -179,7 +184,7 @@ class MarcXml extends AbstractSerializationFile implements SerializationInterfac
         $xml->openMemory();
         $xml->setIndent(true);
         $xml->startDocument('1.0', 'UTF-8');
-        $xml->startElementNs(null, 'collection', "http://www.loc.gov/MARC21/slim");
+        $xml->startElementNs(null, 'collection', 'http://www.loc.gov/MARC21/slim');
         $xml->writeAttribute(
             'xmlns:xsi',
             'http://www.w3.org/2001/XMLSchema-instance'
@@ -255,7 +260,7 @@ class MarcXml extends AbstractSerializationFile implements SerializationInterfac
         $saveUseErrors = libxml_use_internal_errors(true);
         try {
             libxml_clear_errors();
-            $doc = \simplexml_load_string(
+            $doc = simplexml_load_string(
                 $xml,
                 \SimpleXMLElement::class,
                 LIBXML_COMPACT

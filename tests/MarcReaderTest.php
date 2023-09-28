@@ -251,7 +251,7 @@ class MarcReaderTest extends \PHPUnit\Framework\TestCase
      */
     public function testEmptySubfieldInMarcXmlSerialization()
     {
-//        $marc = "00047       00037       245000900000\x1e  \x1faFoo\x1f\x1e\x1d";
+        //        $marc = "00047       00037       245000900000\x1e  \x1faFoo\x1f\x1e\x1d";
         $input = <<<EOT
             <collection xmlns="http://www.loc.gov/MARC21/slim">
               <record>
@@ -547,7 +547,7 @@ class MarcReaderTest extends \PHPUnit\Framework\TestCase
      */
     public function testInvalidDataArray()
     {
-        $this->expectExceptionMessage("Invalid data array format provided");
+        $this->expectExceptionMessage('Invalid data array format provided');
         new MarcReader([]);
     }
 

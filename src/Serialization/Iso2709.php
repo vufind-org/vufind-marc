@@ -29,6 +29,10 @@
 
 namespace VuFind\Marc\Serialization;
 
+use function array_slice;
+use function is_array;
+use function strlen;
+
 /**
  * ISO2709 exchange format support class.
  *
