@@ -29,6 +29,11 @@
 
 namespace VuFind\Marc;
 
+use function in_array;
+use function intval;
+use function is_array;
+use function is_string;
+
 /**
  * MARC record reader class.
  *

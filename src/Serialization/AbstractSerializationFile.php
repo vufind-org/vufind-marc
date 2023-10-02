@@ -29,6 +29,8 @@
 
 namespace VuFind\Marc\Serialization;
 
+use function call_user_func;
+
 /**
  * Abstract base class for serialization format support classes.
  *

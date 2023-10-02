@@ -37,6 +37,11 @@ namespace VuFind\Marc;
 
 use VuFindCode\ISBN;
 
+use function count;
+use function in_array;
+use function intval;
+use function strlen;
+
 /**
  * Class for testing validity of MARC records against MARC21 standard.
  *
@@ -178,7 +183,7 @@ class MarcLint
                         = isset($fieldsSeen['880.' . $tagNo])
                         ? $fieldsSeen['880.' . $tagNo] + 1 : 1;
                 } else {
-                    $this->warn("880: No subfield 6.");
+                    $this->warn('880: No subfield 6.');
                     $tagrules = null;
                 }
             } else {
@@ -305,7 +310,7 @@ class MarcLint
 
             if ($current['code'] === 'a') {
                 if ((substr($data, 0, strlen($isbn)) != $isbn)) {
-                    $this->warn("020: Subfield a may have invalid characters.");
+                    $this->warn('020: Subfield a may have invalid characters.');
                 }
 
                 // report error if no space precedes a qualifier in subfield a
@@ -347,7 +352,7 @@ class MarcLint
                     if (strlen($isbn) == 10) {
                         $isbnObj = new ISBN($isbn);
                         if ($isbnObj->isValid()) {
-                            $this->warn("020:  Subfield z is numerically valid.");
+                            $this->warn('020:  Subfield z is numerically valid.');
                         }
                     }
                 }
@@ -393,7 +398,7 @@ class MarcLint
                             } else {
                                 $this->warn(
                                     "041: Subfield _$code, $data ($chk),"
-                                    . " is not valid."
+                                    . ' is not valid.'
                                 );
                             }
                         }
@@ -463,7 +468,7 @@ class MarcLint
     protected function check245(array $field, MarcReader $marc): void
     {
         if (!$marc->getSubfields($field, 'a')) {
-            $this->warn("245: Must have a subfield _a.");
+            $this->warn('245: Must have a subfield _a.');
         }
 
         // Convert subfields to array and set flags indicating which subfields are
@@ -481,11 +486,11 @@ class MarcLint
         // (LCRI 1.0C, Nov. 2003)
         $lastChar = substr($subfields[count($subfields) - 1]['data'], -1);
         if (!in_array($lastChar, ['.', '?', '!'])) {
-            $this->warn("245: Must end with . (period).");
+            $this->warn('245: Must end with . (period).');
         } elseif ($lastChar != '.') {
             $this->warn(
-                "245: MARC21 allows ? or ! as final punctuation but LCRI 1.0C, Nov."
-                . " 2003 (LCPS 1.7.1 for RDA records), requires period."
+                '245: MARC21 allows ? or ! as final punctuation but LCRI 1.0C, Nov.'
+                . ' 2003 (LCPS 1.7.1 for RDA records), requires period.'
             );
         }
 
@@ -494,7 +499,7 @@ class MarcLint
         if (isset($hasSubfields['6'])) {
             // make sure there are at least 2 subfields
             if (count($subfields) < 2) {
-                $this->warn("245: May have too few subfields.");
+                $this->warn('245: May have too few subfields.');
             } else {
                 $first = $subfields[0]['code'];
                 $second = $subfields[1]['code'];
@@ -502,7 +507,7 @@ class MarcLint
                     $this->warn("245: First subfield must be _6, but it is $first");
                 } elseif ($second != 'a') {
                     $this->warn(
-                        "245: First subfield after subfield _6 must be _a, but it "
+                        '245: First subfield after subfield _6 must be _a, but it '
                         . "is _$second"
                     );
                 }
@@ -526,12 +531,12 @@ class MarcLint
                         $i > 0
                         && !preg_match('/\s\/$/', $subfields[$i - 1]['data'])
                     ) {
-                        $this->warn("245: Subfield _c must be preceded by /");
+                        $this->warn('245: Subfield _c must be preceded by /');
                     }
                     // 245 subfield c initials should not have space
                     if (preg_match('/\b\w\. \b\w\./', $current['data'])) {
                         $this->warn(
-                            "245: Subfield _c initials should not have a space."
+                            '245: Subfield _c initials should not have a space.'
                         );
                     }
                     break;
@@ -550,8 +555,8 @@ class MarcLint
                     && !preg_match('/ [:;=]$/', $subfields[$i - 1]['data'])
                 ) {
                     $this->warn(
-                        "245: Subfield _b should be preceded by space-colon, "
-                        . "space-semicolon, or space-equals sign."
+                        '245: Subfield _b should be preceded by space-colon, '
+                        . 'space-semicolon, or space-equals sign.'
                     );
                 }
             }
@@ -567,7 +572,7 @@ class MarcLint
                     $prev = $subfields[$i - 1]['data'];
                     if ($i > 0 && !preg_match('/(\S$)|(\-\- $)/', $prev)) {
                         $this->warn(
-                            "245: Subfield _h should not be preceded by space."
+                            '245: Subfield _h should not be preceded by space.'
                         );
                     }
                     // report error if subfield 'h' does not start with open square
@@ -576,7 +581,7 @@ class MarcLint
                     $data = $current['data'];
                     if (!preg_match('/^\[\w*\s*\w*\]/', $data)) {
                         $this->warn(
-                            "245: Subfield _h must have matching square brackets,"
+                            '245: Subfield _h must have matching square brackets,'
                             . " $data."
                         );
                     }
@@ -594,7 +599,7 @@ class MarcLint
                     $prev = $subfields[$i - 1]['data'];
                     if (!preg_match('/(\S\.$)|(\-\- \.$)/', $prev)) {
                         $this->warn(
-                            "245: Subfield _n must be preceded by . (period)."
+                            '245: Subfield _n must be preceded by . (period).'
                         );
                     }
                 }
@@ -616,16 +621,16 @@ class MarcLint
                         && !preg_match('/(\S,$)|(\-\- ,$)/', $prev['data'])
                     ) {
                         $this->warn(
-                            "245: Subfield _p must be preceded by , (comma) "
-                            . "when it follows subfield _n."
+                            '245: Subfield _p must be preceded by , (comma) '
+                            . 'when it follows subfield _n.'
                         );
                     } elseif (
                         $prev['code'] != 'n'
                         && !preg_match('/(\S\.$)|(\-\- \.$)/', $prev['data'])
                     ) {
                         $this->warn(
-                            "245: Subfield _p must be preceded by . (period)"
-                            . " when it follows a subfield other than _n."
+                            '245: Subfield _p must be preceded by . (period)'
+                            . ' when it follows a subfield other than _n.'
                         );
                     }
                 }
@@ -744,7 +749,7 @@ class MarcLint
         }
 
         if (!is_numeric($ind)) {
-            $this->warn($tagNo . ": Non-filing indicator is non-numeric");
+            $this->warn($tagNo . ': Non-filing indicator is non-numeric');
             return;
         }
 
@@ -754,7 +759,7 @@ class MarcLint
         // warn about out-of-range skip indicators (note: this feature is an
         // addition to the PHP code; it is not ported directly from MARC::Lint).
         if ($ind > strlen($title)) {
-            $this->warn($tagNo . ": Non-filing indicator is out of range");
+            $this->warn($tagNo . ': Non-filing indicator is out of range');
             return;
         }
 
@@ -837,7 +842,7 @@ class MarcLint
                     $currentGroup = [];
                 }
             } else {
-                $currentGroup[] = preg_replace("/\s+/", " ", $currentLine);
+                $currentGroup[] = preg_replace("/\s+/", ' ', $currentLine);
             }
         }
 

@@ -31,6 +31,9 @@ namespace VuFind\Marc\Serialization;
 
 use pcrov\JsonReader\JsonReader;
 
+use function is_array;
+use function strlen;
+
 /**
  * MARC-in-JSON format support class.
  *
