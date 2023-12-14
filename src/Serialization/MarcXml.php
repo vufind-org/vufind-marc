@@ -234,7 +234,7 @@ class MarcXml extends AbstractSerializationFile implements SerializationInterfac
             '/[^\x{0009}\x{000a}\x{000d}\x{0020}-\x{D7FF}\x{E000}-\x{FFFD}]+/u',
             '',
             $xml->outputMemory(true)
-        );
+        ) ?? '';
     }
 
     /**
