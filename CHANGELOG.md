@@ -22,7 +22,7 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ## Fixed
 
-- Nothing.
+- Throw exception when preg_replace in XML serialization returns null in case of invalid utf-8 string passed
 
 ## 1.0.2 - 2022-11-25
 

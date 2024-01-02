@@ -176,6 +176,7 @@ class MarcXml extends AbstractSerializationFile implements SerializationInterfac
      *
      * @param array $record Record data
      *
+     * @throws \Exception
      * @return string
      */
     public static function toString(array $record): string
@@ -230,11 +231,15 @@ class MarcXml extends AbstractSerializationFile implements SerializationInterfac
         $xml->endDocument();
 
         // Strip illegal characters from XML:
-        return preg_replace(
+        $xmlString = preg_replace(
             '/[^\x{0009}\x{000a}\x{000d}\x{0020}-\x{D7FF}\x{E000}-\x{FFFD}]+/u',
             '',
             $xml->outputMemory(true)
         );
+        if ($xmlString === null) {
+            throw new \Exception('Error processing XML');
+        }
+        return $xmlString;
     }
 
     /**
