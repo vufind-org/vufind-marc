@@ -237,7 +237,7 @@ class MarcXml extends AbstractSerializationFile implements SerializationInterfac
             $xml->outputMemory(true)
         );
         if ($xmlString === null) {
-            throw new \Exception("Error processing XML");
+            throw new \Exception('Error processing XML');
         }
         return $xmlString;
     }
