@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
-## Next Release - TBD
+## 1.1.0 - 2024-01-02
 
 ### Added
 
@@ -20,7 +20,7 @@ All notable changes to this project will be documented in this file, in reverse 
 
 - Nothing.
 
-## Fixed
+### Fixed
 
 - Throw exception when preg_replace in XML serialization returns null in case of invalid utf-8 string passed
 
