@@ -49,7 +49,7 @@ class MarcCollectionFileTest extends \PHPUnit\Framework\TestCase
      *
      * @return array
      */
-    public function collectionFixtures(): array
+    public static function collectionFixtures(): array
     {
         return [
             ['marc/marc_collection.xml'],

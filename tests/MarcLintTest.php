@@ -73,7 +73,7 @@ class MarcLintTest extends \PHPUnit\Framework\TestCase
      *
      * @return array
      */
-    public function get020TestData()
+    public static function get020TestData()
     {
         return [
             [
@@ -188,7 +188,7 @@ class MarcLintTest extends \PHPUnit\Framework\TestCase
      *
      * @return array
      */
-    public function get041TestData()
+    public static function get041TestData()
     {
         return [
             [
@@ -283,7 +283,7 @@ class MarcLintTest extends \PHPUnit\Framework\TestCase
      *
      * @return array
      */
-    public function get245TestData()
+    public static function get245TestData()
     {
         return [
             [
@@ -604,7 +604,7 @@ class MarcLintTest extends \PHPUnit\Framework\TestCase
      *
      * @return array
      */
-    public function getCheckArticleTestData()
+    public static function getCheckArticleTestData()
     {
         return [
             [
