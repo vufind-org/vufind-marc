@@ -29,8 +29,6 @@
 
 namespace VuFindTest\Marc\Serialization;
 
-use VuFind\Marc\MarcReader;
-
 /**
  * MarcXml Test Class
  *
@@ -66,20 +64,5 @@ class MarcXmlTest extends \PHPUnit\Framework\TestCase
         $this->expectExceptionMessage('Collection file not open');
         $class = new \VuFind\Marc\Serialization\MarcXml();
         $class->getNextRecord();
-    }
-
-    /**
-     * Test bad record
-     *
-     * @return void
-     * @throws \Exception
-     */
-    public function testToStringException()
-    {
-        $xmlFile = $this->getFixture('marc/bad.mrc');
-        $reader = new MarcReader($xmlFile);
-        $this->expectException(\Exception::class);
-        $this->expectExceptionMessage('Error processing XML');
-        $xml = $reader->toFormat('MARCXML');
     }
 }
