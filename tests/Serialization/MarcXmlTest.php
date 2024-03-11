@@ -29,8 +29,6 @@
 
 namespace VuFindTest\Marc\Serialization;
 
-use VuFind\Marc\MarcReader;
-
 /**
  * MarcXml Test Class
  *
