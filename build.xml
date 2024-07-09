@@ -8,7 +8,7 @@
   <property name="downloadsdir" value="${srcdir}/downloads" override="true" />
   <property name="skip_phpdoc" value="false" />
   <property name="phpdoc_version" value="3.3.1" />
-  <property name="phpunit_command" value="${srcdir}/vendor/bin/phpunit" /><!-- if you have issues with segfaults during code coverage generation, try adding -dzend.enable_gc=0 to this (but this fix was probably only needed in PHP 5) -->
+  <property name="phpunit_command" value="${srcdir}/vendor/bin/phpunit" />
 
   <!-- Main Target -->
   <target name="main" description="main target">
@@ -126,14 +126,14 @@
 
   <!-- PHPUnit -->
   <target name="phpunit" description="Run tests">
-    <exec dir="${srcdir}/tests" executable="${phpunit_command}" passthru="true" checkreturn="true">
+    <exec dir="${srcdir}/tests" executable="${sh}" passthru="true" checkreturn="true">
       <arg line="--log-junit ${builddir}/reports/phpunit.xml --coverage-clover ${builddir}/reports/coverage/clover.xml --coverage-html ${builddir}/reports/coverage/" />
     </exec>
   </target>
 
   <!-- PHPUnit without logging output -->
   <target name="phpunitfast" description="Run tests">
-    <exec dir="${srcdir}/tests" executable="${phpunit_command}" passthru="true" checkreturn="true">
+    <exec dir="${srcdir}/tests" executable="${sh}" passthru="true" checkreturn="true">
     </exec>
   </target>
 
