@@ -133,7 +133,7 @@
 
   <!-- PHPUnit without logging output -->
   <target name="phpunitfast" description="Run tests">
-    <exec dir="${srcdir}/tests" executable="${phpunit_command}" passthru="true" checkreturn="true" />
+    <exec dir="${srcdir}/tests" executable="${phpunit_command}" passthru="true" checkreturn="true">
     </exec>
   </target>
 
