@@ -127,13 +127,14 @@
   <!-- PHPUnit -->
   <target name="phpunit" description="Run tests">
     <exec dir="${srcdir}/tests" executable="${sh}" passthru="true" checkreturn="true">
-      <arg line="--log-junit ${builddir}/reports/phpunit.xml --coverage-clover ${builddir}/reports/coverage/clover.xml --coverage-html ${builddir}/reports/coverage/" />
+      <arg line="-c &apos;${phpunit_command} --log-junit ${builddir}/reports/phpunit.xml --coverage-clover ${builddir}/reports/coverage/clover.xml --coverage-html ${builddir}/reports/coverage/&apos;" />
     </exec>
   </target>
 
   <!-- PHPUnit without logging output -->
   <target name="phpunitfast" description="Run tests">
     <exec dir="${srcdir}/tests" executable="${sh}" passthru="true" checkreturn="true">
+      <arg line="-c &apos;${phpunit_command} &apos;" />
     </exec>
   </target>
 
