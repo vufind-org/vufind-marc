@@ -31,6 +31,8 @@ namespace VuFind\Marc\Test\Feature;
 
 use RuntimeException;
 
+use function sprintf;
+
 /**
  * Trait adding functionality for loading fixtures.
  *
