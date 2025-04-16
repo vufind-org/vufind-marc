@@ -211,7 +211,7 @@ class MarcReader
     {
         $result = [];
 
-        if ($fieldTag === '') {
+        if (!$fieldTag) {
             return $result;
         }
 
