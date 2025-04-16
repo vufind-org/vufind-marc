@@ -211,6 +211,10 @@ class MarcReader
     {
         $result = [];
 
+        if ($fieldTag === '') {
+            return $result;
+        }
+
         foreach ($this->data['fields'] as $fieldData) {
             if ($fieldTag && $fieldTag !== (string)key($fieldData)) {
                 continue;

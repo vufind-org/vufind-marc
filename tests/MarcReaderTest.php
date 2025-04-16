@@ -81,6 +81,9 @@ class MarcReaderTest extends \PHPUnit\Framework\TestCase
             $reader->getField('008')
         );
 
+        $this->assertEquals([], $reader->getFields(''));
+        $this->assertEquals([], $reader->getField(''));
+
         $field = $reader->getField('100');
         foreach ($field['subfields'] as $subfield) {
             $this->assertIsString($subfield['code']);
