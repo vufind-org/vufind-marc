@@ -216,7 +216,7 @@ class MarcReader
         }
 
         foreach ($this->data['fields'] as $fieldData) {
-            if ($fieldTag && $fieldTag !== (string)key($fieldData)) {
+            if ($fieldTag !== (string)key($fieldData)) {
                 continue;
             }
             $field = current($fieldData);
