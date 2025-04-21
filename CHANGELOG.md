@@ -20,7 +20,7 @@ All notable changes to this project will be documented in this file, in reverse 
 
 - Nothing.
 
-## Fixed
+### Fixed
 
 - Passing an empty field tag to getFields() no longer arbitrarily returns the first available field.
 
