@@ -37,7 +37,7 @@
         "guzzlehttp/guzzle": "^7.8.1",
         "pear/http_request2": "2.6.0",
         "phpmd/phpmd": "2.15.0",
-        "phpstan/phpstan": "1.12.7",
+        "phpstan/phpstan": "2.1.32",
         "phpunit/phpunit": "10.5.36",
         "phing/phing": "3.0",
         "rector/rector": "2.2.7",
