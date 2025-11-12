@@ -87,7 +87,7 @@ class MarcCollection implements \Iterator
     {
         $this->position = 0;
         $this->records = [];
-        if ($data === '' || $data === '0') {
+        if (!$data) {
             return;
         }
         $valid = false;
