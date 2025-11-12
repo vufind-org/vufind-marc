@@ -155,7 +155,7 @@ class Iso2709 extends AbstractSerializationFile implements SerializationInterfac
 
             $tagData = substr($marc, $dataStart + $dataOffset, $len);
 
-            if (substr($tagData, -1, 1) === self::END_OF_FIELD) {
+            if (substr($tagData, -1, 1) == self::END_OF_FIELD) {
                 $tagData = substr($tagData, 0, -1);
             } else {
                 $invalid = true;
@@ -308,6 +308,6 @@ class Iso2709 extends AbstractSerializationFile implements SerializationInterfac
             "\x00\x0a\x0d"
         );
 
-        return $record !== '' && $record !== '0' ? ($record . self::END_OF_RECORD) : '';
+        return $record ? ($record . self::END_OF_RECORD) : '';
     }
 }
