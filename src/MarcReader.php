@@ -211,7 +211,7 @@ class MarcReader
     {
         $result = [];
 
-        if (!$fieldTag) {
+        if ($fieldTag === '' || $fieldTag === '0') {
             return $result;
         }
 
@@ -238,7 +238,7 @@ class MarcReader
                     'data' => current($subfield),
                 ];
             }
-            if ($subfields) {
+            if ($subfields !== []) {
                 $result[] = [
                     'tag' => $fieldTag,
                     'i1' => $field['ind1'],
@@ -288,7 +288,7 @@ class MarcReader
                     'data' => current($subfield),
                 ];
             }
-            if ($subfields) {
+            if ($subfields !== []) {
                 $result[] = [
                     'tag' => $tag,
                     'i1' => $field['ind1'],
@@ -457,7 +457,7 @@ class MarcReader
                     'data' => current($subfield),
                 ];
             }
-            if ($subfields) {
+            if ($subfields !== []) {
                 $result[] = [
                     'tag' => $fieldTag,
                     'i1' => $field['ind1'],
@@ -576,7 +576,7 @@ class MarcReader
             $tag = (string)key($fieldData);
             $field = current($fieldData);
             $fieldRules = $this->getFilteringRulesForTag($rules, $tag);
-            if ($fieldRules) {
+            if ($fieldRules !== []) {
                 if (is_string($field)) {
                     // Control field, filter out completely
                     continue;
@@ -646,7 +646,7 @@ class MarcReader
                     $remaining[] = $subfield;
                 }
             }
-            if (!$remaining) {
+            if ($remaining === []) {
                 return [];
             }
             $subfields = $remaining;

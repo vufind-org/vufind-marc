@@ -168,7 +168,8 @@ class MarcLint
             $tagNo = $current['tag'];
             // if 880 field, inherit rules from tagno in subfield _6
             if ($tagNo == 880) {
-                if ($sub6 = $marc->getSubfield($current, '6')) {
+                $sub6 = $marc->getSubfield($current, '6');
+                if ($sub6 !== '' && $sub6 !== '0') {
                     $tagNo = substr($sub6, 0, 3);
                     $tagrules = $this->rules[$tagNo] ?? null;
                     // 880 is repeatable, but its linked field may not be
@@ -342,18 +343,13 @@ class MarcLint
                 }
             } elseif ($current['code'] === 'z') {
                 // look for valid isbn in 020$z
-                if (
-                    preg_match('/^ISBN/', $data)
-                    || preg_match('/^\d*\-\d+/', $data)
-                ) {
-                    // ##################################################
-                    // ## Turned on for now--Comment to unimplement  ####
-                    // ##################################################
-                    if (strlen($isbn) == 10) {
-                        $isbnObj = new ISBN($isbn);
-                        if ($isbnObj->isValid()) {
-                            $this->warn('020:  Subfield z is numerically valid.');
-                        }
+                // ##################################################
+                // ## Turned on for now--Comment to unimplement  ####
+                // ##################################################
+                if ((preg_match('/^ISBN/', $data) || preg_match('/^\d*\-\d+/', $data)) && strlen($isbn) == 10) {
+                    $isbnObj = new ISBN($isbn);
+                    if ($isbnObj->isValid()) {
+                        $this->warn('020:  Subfield z is numerically valid.');
                     }
                 }
             }
@@ -487,7 +483,7 @@ class MarcLint
         $lastChar = substr($subfields[count($subfields) - 1]['data'], -1);
         if (!in_array($lastChar, ['.', '?', '!'])) {
             $this->warn('245: Must end with . (period).');
-        } elseif ($lastChar != '.') {
+        } elseif ($lastChar !== '.') {
             $this->warn(
                 '245: MARC21 allows ? or ! as final punctuation but LCRI 1.0C, Nov.'
                 . ' 2003 (LCPS 1.7.1 for RDA records), requires period.'
@@ -873,7 +869,7 @@ class MarcLint
         $ruleCount = count($rules);
         for ($i = 1; $i < $ruleCount; $i++) {
             [$key, $value, $lineDesc] = explode(' ', $rules[$i] . ' ');
-            if (substr($key, 0, 3) == 'ind') {
+            if (substr($key, 0, 3) === 'ind') {
                 // Expand ranges:
                 $value = str_replace('0-9', '0123456789', $value);
                 $this->rules[$tag][$key] = [
@@ -919,7 +915,7 @@ class MarcLint
         $length = strlen($rules);
         for ($i = 0; $i < $length; $i++) {
             $current = substr($rules, $i, 1);
-            if ($current == 'b') {
+            if ($current === 'b') {
                 $current = 'blank';
             }
             $string .= $current;
