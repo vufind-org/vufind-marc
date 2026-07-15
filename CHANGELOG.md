@@ -10,6 +10,28 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Changed
 
+- The minimum PHP version requirement has been raised to 8.2.
+
+### Deprecated
+
+- Nothing.
+
+### Removed
+
+- Nothing.
+
+### Fixed
+
+- Nothing.
+
+## 1.2.0 - 2025-04-21
+
+### Added
+
+- Nothing.
+
+### Changed
+
 - The minimum PHP version requirement has been raised to 8.1.
 
 ### Deprecated
@@ -20,9 +42,9 @@ All notable changes to this project will be documented in this file, in reverse 
 
 - Nothing.
 
-## Fixed
+### Fixed
 
-- Nothing.
+- Passing an empty field tag to getFields() no longer arbitrarily returns the first available field.
 
 ## 1.1.0 - 2024-01-02
 
