@@ -66,6 +66,7 @@ class MarcReader
     /**
      * MARC is stored in a multidimensional array resembling MARC-in-JSON
      * specification by Ross Singer:
+     *
      * [
      *     'leader' => '...',
      *     'fields' => [
@@ -85,7 +86,7 @@ class MarcReader
      *             ]
      *         ]
      *     ]
-     * ].
+     * ]
      *
      * @var array
      * @see https://web.archive.org/web/20151112001548/http://dilettantes.code4lib.org/blog/2010/09/a-proposal-to-serialize-marc-in-json/
