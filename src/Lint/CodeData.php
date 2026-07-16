@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Code Data to support Lint for MARC records
+ * Code Data to support Lint for MARC records.
  *
  * This module is adapted from the MARC::Lint::CodeData CPAN module for Perl,
  * maintained by Bryan Baldus <eijabb@cpan.org> and available for download at
@@ -59,77 +59,77 @@ namespace VuFind\Marc\Lint;
 class CodeData
 {
     /**
-     * Valid Geographic Area Codes
+     * Valid Geographic Area Codes.
      *
      * @var array
      */
     public $geogAreaCodes;
 
     /**
-     * Obsolete Geographic Area Codes
+     * Obsolete Geographic Area Codes.
      *
      * @var array
      */
     public $obsoleteGeogAreaCodes;
 
     /**
-     * Valid Language Codes
+     * Valid Language Codes.
      *
      * @var array
      */
     public $languageCodes;
 
     /**
-     * Obsolete Language Codes
+     * Obsolete Language Codes.
      *
      * @var array
      */
     public $obsoleteLanguageCodes;
 
     /**
-     * Valid Country Codes
+     * Valid Country Codes.
      *
      * @var array
      */
     public $countryCodes;
 
     /**
-     * Obsolete Country Codes
+     * Obsolete Country Codes.
      *
      * @var array
      */
     public $obsoleteCountryCodes;
 
     /**
-     * Valid sources for fields 600-651
+     * Valid sources for fields 600-651.
      *
      * @var array
      */
     public $sources600_651;
 
     /**
-     * Obsolete sources for fields 600-651
+     * Obsolete sources for fields 600-651.
      *
      * @var array
      */
     public $obsoleteSources600_651;
 
     /**
-     * Valid sources for field 655
+     * Valid sources for field 655.
      *
      * @var array
      */
     public $sources655;
 
     /**
-     * Obsolete sources for field 655
+     * Obsolete sources for field 655.
      *
      * @var array
      */
     public $obsoleteSources655;
 
     /**
-     * Start function
+     * Start function.
      *
      * Initialize code arrays.
      *

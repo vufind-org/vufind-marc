@@ -41,7 +41,7 @@ namespace VuFind\Marc;
 class MarcCollectionFile implements \Iterator
 {
     /**
-     * Supported serialization formats
+     * Supported serialization formats.
      *
      * @var array
      */
@@ -52,35 +52,35 @@ class MarcCollectionFile implements \Iterator
     ];
 
     /**
-     * Serialized format stream
+     * Serialized format stream.
      *
      * @var Serialization\SerializationFileInterface
      */
     protected $stream;
 
     /**
-     * Iteration position
+     * Iteration position.
      *
      * @var int
      */
     protected $position = 0;
 
     /**
-     * Current record
+     * Current record.
      *
      * @var string
      */
     protected $record = '';
 
     /**
-     * Message callback
+     * Message callback.
      *
      * @var callable
      */
     protected $messageCallback;
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param string   $file            MARC record collection file in MARCXML or
      * ISO2709 format
@@ -95,7 +95,7 @@ class MarcCollectionFile implements \Iterator
     }
 
     /**
-     * Set MARC record file
+     * Set MARC record file.
      *
      * @param string $file MARC record collection file in MARCXML or ISO2709 format
      *

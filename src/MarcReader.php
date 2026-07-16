@@ -46,7 +46,7 @@ use function is_string;
 class MarcReader
 {
     /**
-     * Supported serialization formats
+     * Supported serialization formats.
      *
      * @var array
      */
@@ -57,7 +57,7 @@ class MarcReader
     ];
 
     /**
-     * MARC leader
+     * MARC leader.
      *
      * @var string
      */
@@ -66,6 +66,7 @@ class MarcReader
     /**
      * MARC is stored in a multidimensional array resembling MARC-in-JSON
      * specification by Ross Singer:
+     *
      * [
      *     'leader' => '...',
      *     'fields' => [
@@ -93,14 +94,14 @@ class MarcReader
     protected $data;
 
     /**
-     * Any warnings encountered when parsing a record
+     * Any warnings encountered when parsing a record.
      *
      * @var array
      */
     protected $warnings;
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param string|array $data MARC record in one of the supported formats, or an
      * associative array with 'leader' and 'fields' in the internal format
@@ -111,7 +112,7 @@ class MarcReader
     }
 
     /**
-     * Set MARC record data
+     * Set MARC record data.
      *
      * @param string|array $data MARC record in one of the supported formats, or an
      * associative array with 'leader' and 'fields' in the internal format
@@ -156,7 +157,7 @@ class MarcReader
     }
 
     /**
-     * Serialize the record
+     * Serialize the record.
      *
      * @param string $format Format to return (e.g. 'ISO2709' or 'MARCXML')
      *
@@ -173,7 +174,7 @@ class MarcReader
     }
 
     /**
-     * Return leader
+     * Return leader.
      *
      * @return string
      */
@@ -184,7 +185,7 @@ class MarcReader
 
     /**
      * Return an associative array for a data field, a string for a control field or
-     * an empty array if field does not exist
+     * an empty array if field does not exist.
      *
      * @param string $fieldTag      The MARC field tag to get
      * @param array  $subfieldCodes The MARC subfield codes to get, or empty for all
@@ -199,7 +200,7 @@ class MarcReader
 
     /**
      * Return an associative array of fields for data fields or an array of values
-     * for control fields
+     * for control fields.
      *
      * @param string $fieldTag      The MARC field tag to get
      * @param array  $subfieldCodes The MARC subfield codes to get, or empty for all.
@@ -303,7 +304,7 @@ class MarcReader
 
     /**
      * Return first subfield with the given code in the MARC field provided by
-     * getField or getFields
+     * getField or getFields.
      *
      * @param array  $field        Result from MarcReader::getFields
      * @param string $subfieldCode The MARC subfield code to get
@@ -391,7 +392,7 @@ class MarcReader
 
     /**
      * Return an associative array for a linked field such as 880 (Alternate Graphic
-     * Representation) or an empty array if field does not exist
+     * Representation) or an empty array if field does not exist.
      *
      * @param string $fieldTag       The MARC field that contains the linked fields
      * @param string $linkedFieldTag The linked MARC field tag to get
@@ -419,7 +420,7 @@ class MarcReader
 
     /**
      * Return an array of associative arrays for a linked field such as 880
-     * (Alternate Graphic Representation)
+     * (Alternate Graphic Representation).
      *
      * @param string $fieldTag       The MARC field that contains the linked fields
      * @param string $linkedFieldTag The linked MARC field tag to get
@@ -506,7 +507,7 @@ class MarcReader
     }
 
     /**
-     * Get linked field data from subfield 6
+     * Get linked field data from subfield 6.
      *
      * @param array $field Field
      *
@@ -518,7 +519,7 @@ class MarcReader
     }
 
     /**
-     * Parse a linkage field
+     * Parse a linkage field.
      *
      * @param string $link Linkage field
      *
@@ -603,7 +604,7 @@ class MarcReader
     }
 
     /**
-     * Get filtering rules matching a field tag
+     * Get filtering rules matching a field tag.
      *
      * @param array  $rules Filtering rules
      * @param string $tag   Field tag
@@ -625,7 +626,7 @@ class MarcReader
     }
 
     /**
-     * Filter subfields
+     * Filter subfields.
      *
      * @param array $rules     Filtering rules
      * @param array $subfields Subfields
@@ -656,7 +657,7 @@ class MarcReader
     }
 
     /**
-     * Get any warnings encountered when parsing a record
+     * Get any warnings encountered when parsing a record.
      *
      * @return array
      */
@@ -666,7 +667,7 @@ class MarcReader
     }
 
     /**
-     * Return fields by tag in internal format
+     * Return fields by tag in internal format.
      *
      * @param string $tag Field tag
      *
@@ -685,7 +686,7 @@ class MarcReader
     }
 
     /**
-     * Return first subfield with the given code in the internal MARC field
+     * Return first subfield with the given code in the internal MARC field.
      *
      * @param array  $field        Internal MARC field
      * @param string $subfieldCode The MARC subfield code to get

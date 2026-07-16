@@ -1,7 +1,7 @@
 <?php
 
 /**
- * MarcReader Test Class
+ * MarcReader Test Class.
  *
  * PHP version 7
  *
@@ -32,7 +32,7 @@ namespace VuFind\Marc\Test;
 use VuFind\Marc\MarcReader;
 
 /**
- * MarcReader Test Class
+ * MarcReader Test Class.
  *
  * @category VuFind
  * @package  Tests
@@ -45,7 +45,7 @@ class MarcReaderTest extends \PHPUnit\Framework\TestCase
     use Feature\FixtureTrait;
 
     /**
-     * Test MarcReader methods
+     * Test MarcReader methods.
      *
      * @return void
      */
@@ -169,7 +169,7 @@ class MarcReaderTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Test empty field in ISO2709
+     * Test empty field in ISO2709.
      *
      * @return void
      */
@@ -198,7 +198,7 @@ class MarcReaderTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Test empty subfield in ISO2709
+     * Test empty subfield in ISO2709.
      *
      * @return void
      */
@@ -212,7 +212,7 @@ class MarcReaderTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Test empty field in MARCXML serialization
+     * Test empty field in MARCXML serialization.
      *
      * @return void
      */
@@ -249,7 +249,7 @@ class MarcReaderTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Test empty subfield in MARCXML serialization
+     * Test empty subfield in MARCXML serialization.
      *
      * @return void
      */
@@ -291,7 +291,7 @@ class MarcReaderTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Test correct handling of multibyte subfield code in ISO2709
+     * Test correct handling of multibyte subfield code in ISO2709.
      *
      * @return void
      */
@@ -320,7 +320,7 @@ class MarcReaderTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Test correct handling of multibyte indicators code in ISO2709
+     * Test correct handling of multibyte indicators code in ISO2709.
      *
      * @return void
      */
@@ -353,7 +353,7 @@ class MarcReaderTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Test invalid XML
+     * Test invalid XML.
      *
      * @return void
      */
@@ -368,7 +368,7 @@ class MarcReaderTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Test invalid ISO2709
+     * Test invalid ISO2709.
      *
      * @return void
      */
@@ -384,7 +384,7 @@ class MarcReaderTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Test records too large for ISO2709
+     * Test records too large for ISO2709.
      *
      * @return void
      */
@@ -422,7 +422,7 @@ class MarcReaderTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Test MARC array format
+     * Test MARC array format.
      *
      * @return void
      */
@@ -454,7 +454,7 @@ class MarcReaderTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Test invalid record format
+     * Test invalid record format.
      *
      * @return void
      */
@@ -467,7 +467,7 @@ class MarcReaderTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Test requesting bad format
+     * Test requesting bad format.
      *
      * @return void
      */
@@ -481,7 +481,7 @@ class MarcReaderTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Test ISO2709 serialization of an invalid field tag
+     * Test ISO2709 serialization of an invalid field tag.
      *
      * @return void
      */
@@ -505,7 +505,7 @@ class MarcReaderTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Test field filtering
+     * Test field filtering.
      *
      * @return void
      */
@@ -545,7 +545,7 @@ class MarcReaderTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Test invalid data array handling
+     * Test invalid data array handling.
      *
      * @return void
      */
@@ -556,7 +556,7 @@ class MarcReaderTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Test long record overflowing the maximum ISO2709 record length
+     * Test long record overflowing the maximum ISO2709 record length.
      *
      * @return void
      */

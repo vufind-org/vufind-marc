@@ -1,7 +1,7 @@
 <?php
 
 /**
- * MarcLint Test Class
+ * MarcLint Test Class.
  *
  * PHP version 7
  *
@@ -34,7 +34,7 @@ use VuFind\Marc\MarcLint;
 use VuFind\Marc\MarcReader;
 
 /**
- * MarcLint Test Class
+ * MarcLint Test Class.
  *
  * @category VuFind
  * @package  Tests
@@ -48,7 +48,7 @@ class MarcLintTest extends \PHPUnit\Framework\TestCase
     use Feature\ReflectionTrait;
 
     /**
-     * Test check020 method
+     * Test check020 method.
      *
      * @param string $expected Expected output
      * @param string $input    Input
@@ -69,7 +69,7 @@ class MarcLintTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Data provider for testCheck020
+     * Data provider for testCheck020.
      *
      * @return array
      */
@@ -163,7 +163,7 @@ class MarcLintTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Test check041 method
+     * Test check041 method.
      *
      * @param string $expected Expected output
      * @param string $input    Input
@@ -184,7 +184,7 @@ class MarcLintTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Data provider for testCheck041
+     * Data provider for testCheck041.
      *
      * @return array
      */
@@ -225,7 +225,7 @@ class MarcLintTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Test check043 method
+     * Test check043 method.
      *
      * @return void
      */
@@ -258,7 +258,7 @@ class MarcLintTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Test check245 method
+     * Test check245 method.
      *
      * @param string $expected Expected output
      * @param string $input    Input
@@ -279,7 +279,7 @@ class MarcLintTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Data provider for testCheck245
+     * Data provider for testCheck245.
      *
      * @return array
      */
@@ -501,7 +501,7 @@ class MarcLintTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Test field 880
+     * Test field 880.
      *
      * @return void
      */
@@ -519,7 +519,7 @@ class MarcLintTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Test records that cover the rest of the rules
+     * Test records that cover the rest of the rules.
      *
      * @return void
      */
@@ -572,7 +572,7 @@ class MarcLintTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Test checkArticle method
+     * Test checkArticle method.
      *
      * @param string $expected Expected output
      * @param string $input    Input
@@ -600,7 +600,7 @@ class MarcLintTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Data provider for testCheck041
+     * Data provider for testCheck041.
      *
      * @return array
      */
@@ -639,7 +639,7 @@ class MarcLintTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Test parsing of rules
+     * Test parsing of rules.
      *
      * @return void
      */

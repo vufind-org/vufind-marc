@@ -1,7 +1,7 @@
 <?php
 
 /**
- * MarcCollection Test Class
+ * MarcCollection Test Class.
  *
  * PHP version 7
  *
@@ -32,7 +32,7 @@ namespace VuFind\Marc\Test;
 use VuFind\Marc\MarcCollection;
 
 /**
- * MarcCollection Test Class
+ * MarcCollection Test Class.
  *
  * @category VuFind
  * @package  Tests
@@ -45,7 +45,7 @@ class MarcCollectionTest extends \PHPUnit\Framework\TestCase
     use Feature\FixtureTrait;
 
     /**
-     * Return collection fixtures for the tests
+     * Return collection fixtures for the tests.
      *
      * @return array
      */
@@ -59,7 +59,7 @@ class MarcCollectionTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Test MarcCollectionReader
+     * Test MarcCollectionReader.
      *
      * @param string $fixture Fixture to use
      *
@@ -94,7 +94,7 @@ class MarcCollectionTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Test bad collection format
+     * Test bad collection format.
      *
      * @return void
      */
@@ -105,7 +105,7 @@ class MarcCollectionTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Test empty MarcCollectionReader
+     * Test empty MarcCollectionReader.
      *
      * @return void
      */

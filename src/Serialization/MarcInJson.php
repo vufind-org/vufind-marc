@@ -46,21 +46,21 @@ use function strlen;
 class MarcInJson extends AbstractSerializationFile implements SerializationInterface
 {
     /**
-     * Current file
+     * Current file.
      *
      * @var string
      */
     protected $fileName = '';
 
     /**
-     * JSON Reader for current file
+     * JSON Reader for current file.
      *
      * @var JsonReader
      */
     protected $reader = null;
 
     /**
-     * Check if this class can parse the given MARC string
+     * Check if this class can parse the given MARC string.
      *
      * @param string $marc MARC
      *
@@ -73,7 +73,7 @@ class MarcInJson extends AbstractSerializationFile implements SerializationInter
     }
 
     /**
-     * Check if the serialization class can parse the given MARC collection string
+     * Check if the serialization class can parse the given MARC collection string.
      *
      * @param string $marc MARC
      *
@@ -86,7 +86,7 @@ class MarcInJson extends AbstractSerializationFile implements SerializationInter
     }
 
     /**
-     * Check if the serialization class can parse the given MARC collection file
+     * Check if the serialization class can parse the given MARC collection file.
      *
      * @param string $file File name
      *
@@ -107,7 +107,7 @@ class MarcInJson extends AbstractSerializationFile implements SerializationInter
     }
 
     /**
-     * Parse MARC collection from a string into an array
+     * Parse MARC collection from a string into an array.
      *
      * @param string $collection MARC record collection in the format supported by
      * the serialization class
@@ -121,7 +121,7 @@ class MarcInJson extends AbstractSerializationFile implements SerializationInter
     }
 
     /**
-     * Parse MARC-in-JSON
+     * Parse MARC-in-JSON.
      *
      * @param string $marc JSON
      *
@@ -134,7 +134,7 @@ class MarcInJson extends AbstractSerializationFile implements SerializationInter
     }
 
     /**
-     * Convert record to ISO2709 string
+     * Convert record to ISO2709 string.
      *
      * @param array $record Record data
      *
@@ -146,7 +146,7 @@ class MarcInJson extends AbstractSerializationFile implements SerializationInter
     }
 
     /**
-     * Open a collection file
+     * Open a collection file.
      *
      * @param string $file File name
      *
@@ -164,7 +164,7 @@ class MarcInJson extends AbstractSerializationFile implements SerializationInter
     }
 
     /**
-     * Rewind the collection file
+     * Rewind the collection file.
      *
      * @return void
      *
@@ -179,7 +179,7 @@ class MarcInJson extends AbstractSerializationFile implements SerializationInter
     }
 
     /**
-     * Get next record from the file or an empty string on EOF
+     * Get next record from the file or an empty string on EOF.
      *
      * @return string
      *
@@ -203,7 +203,7 @@ class MarcInJson extends AbstractSerializationFile implements SerializationInter
     }
 
     /**
-     * Convert a record array to a JSON string
+     * Convert a record array to a JSON string.
      *
      * @param array $record Record
      *

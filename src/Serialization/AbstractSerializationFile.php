@@ -45,14 +45,14 @@ abstract class AbstractSerializationFile implements
     MessageCallbackInterface
 {
     /**
-     * Message callback
+     * Message callback.
      *
      * @var callable
      */
     protected $messageCallback = null;
 
     /**
-     * Set message callback
+     * Set message callback.
      *
      * @param callable $callback Message callback
      *
@@ -64,7 +64,7 @@ abstract class AbstractSerializationFile implements
     }
 
     /**
-     * Output a message
+     * Output a message.
      *
      * @param string $msg   Message
      * @param int    $level Error level (see

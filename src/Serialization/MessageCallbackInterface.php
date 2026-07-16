@@ -41,7 +41,7 @@ namespace VuFind\Marc\Serialization;
 interface MessageCallbackInterface
 {
     /**
-     * Set message callback
+     * Set message callback.
      *
      * @param callable $callback Message callback
      *

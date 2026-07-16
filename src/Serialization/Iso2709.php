@@ -51,14 +51,14 @@ class Iso2709 extends AbstractSerializationFile implements SerializationInterfac
     public const MAX_LENGTH = 99999;
 
     /**
-     * Serialized record file handle
+     * Serialized record file handle.
      *
      * @var resource
      */
     protected $file = null;
 
     /**
-     * Check if this class can parse the given MARC string
+     * Check if this class can parse the given MARC string.
      *
      * @param string $marc MARC
      *
@@ -71,7 +71,7 @@ class Iso2709 extends AbstractSerializationFile implements SerializationInterfac
     }
 
     /**
-     * Check if the serialization class can parse the given MARC collection string
+     * Check if the serialization class can parse the given MARC collection string.
      *
      * @param string $marc MARC
      *
@@ -84,7 +84,7 @@ class Iso2709 extends AbstractSerializationFile implements SerializationInterfac
     }
 
     /**
-     * Check if the serialization class can parse the given MARC collection file
+     * Check if the serialization class can parse the given MARC collection file.
      *
      * @param string $file File name
      *
@@ -105,7 +105,7 @@ class Iso2709 extends AbstractSerializationFile implements SerializationInterfac
     }
 
     /**
-     * Parse MARC collection from a string into an array
+     * Parse MARC collection from a string into an array.
      *
      * @param string $collection MARC record collection in the format supported by
      * the serialization class
@@ -130,7 +130,7 @@ class Iso2709 extends AbstractSerializationFile implements SerializationInterfac
     }
 
     /**
-     * Parse an ISO2709 string
+     * Parse an ISO2709 string.
      *
      * @param string $marc ISO2709
      *
@@ -201,7 +201,7 @@ class Iso2709 extends AbstractSerializationFile implements SerializationInterfac
     }
 
     /**
-     * Convert record to an ISO2709 string
+     * Convert record to an ISO2709 string.
      *
      * @param array $record Record data
      *
@@ -257,7 +257,7 @@ class Iso2709 extends AbstractSerializationFile implements SerializationInterfac
     }
 
     /**
-     * Open a collection file
+     * Open a collection file.
      *
      * @param string $file File name
      *
@@ -273,7 +273,7 @@ class Iso2709 extends AbstractSerializationFile implements SerializationInterfac
     }
 
     /**
-     * Rewind the collection file
+     * Rewind the collection file.
      *
      * @return void
      *
@@ -288,7 +288,7 @@ class Iso2709 extends AbstractSerializationFile implements SerializationInterfac
     }
 
     /**
-     * Get next record from the file or an empty string on EOF
+     * Get next record from the file or an empty string on EOF.
      *
      * @return string
      *

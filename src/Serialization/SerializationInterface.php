@@ -41,7 +41,7 @@ namespace VuFind\Marc\Serialization;
 interface SerializationInterface
 {
     /**
-     * Check if the serialization class can parse the given MARC string
+     * Check if the serialization class can parse the given MARC string.
      *
      * @param string $marc MARC
      *
@@ -50,7 +50,7 @@ interface SerializationInterface
     public static function canParse(string $marc): bool;
 
     /**
-     * Check if the serialization class can parse the given MARC collection string
+     * Check if the serialization class can parse the given MARC collection string.
      *
      * @param string $marc MARC
      *
@@ -59,7 +59,7 @@ interface SerializationInterface
     public static function canParseCollection(string $marc): bool;
 
     /**
-     * Parse MARC collection from a string into an array of MarcReader classes
+     * Parse MARC collection from a string into an array of MarcReader classes.
      *
      * @param string $collection MARC record collection in the format supported by
      * the serialization class
@@ -70,7 +70,7 @@ interface SerializationInterface
     public static function collectionFromString(string $collection): array;
 
     /**
-     * Parse MARC from a string
+     * Parse MARC from a string.
      *
      * @param string $marc MARC record in the format supported by the serialization
      * class
@@ -82,7 +82,7 @@ interface SerializationInterface
 
     /**
      * Convert record to a string representing the format supported by the
-     * serialization class
+     * serialization class.
      *
      * @param array $data Record data
      *

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * ISO2709 Serialization Test Class
+ * ISO2709 Serialization Test Class.
  *
  * PHP version 7
  *
@@ -30,7 +30,7 @@
 namespace VuFindTest\Marc\Serialization;
 
 /**
- * ISO2709 Serialization Test Class
+ * ISO2709 Serialization Test Class.
  *
  * @category VuFind
  * @package  Tests
@@ -41,7 +41,7 @@ namespace VuFindTest\Marc\Serialization;
 class Iso2709Test extends \PHPUnit\Framework\TestCase
 {
     /**
-     * Test rewind
+     * Test rewind.
      *
      * @return void
      */
@@ -53,7 +53,7 @@ class Iso2709Test extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Test getNextRecord
+     * Test getNextRecord.
      *
      * @return void
      */

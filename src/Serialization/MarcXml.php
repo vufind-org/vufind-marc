@@ -46,28 +46,28 @@ use function strlen;
 class MarcXml extends AbstractSerializationFile implements SerializationInterface
 {
     /**
-     * Current file
+     * Current file.
      *
      * @var string
      */
     protected $fileName = '';
 
     /**
-     * XML Reader for current file
+     * XML Reader for current file.
      *
      * @var \XMLReader
      */
     protected $xml = null;
 
     /**
-     * Current XML element path
+     * Current XML element path.
      *
      * @var array
      */
     protected $currentXmlPath = [];
 
     /**
-     * Check if this class can parse the given MARC string
+     * Check if this class can parse the given MARC string.
      *
      * @param string $marc MARC
      *
@@ -80,7 +80,7 @@ class MarcXml extends AbstractSerializationFile implements SerializationInterfac
     }
 
     /**
-     * Check if the serialization class can parse the given MARC collection string
+     * Check if the serialization class can parse the given MARC collection string.
      *
      * @param string $marc MARC
      *
@@ -93,7 +93,7 @@ class MarcXml extends AbstractSerializationFile implements SerializationInterfac
     }
 
     /**
-     * Check if the serialization class can parse the given MARC collection file
+     * Check if the serialization class can parse the given MARC collection file.
      *
      * @param string $file File name
      *
@@ -113,7 +113,7 @@ class MarcXml extends AbstractSerializationFile implements SerializationInterfac
     }
 
     /**
-     * Parse MARC collection from a string into an array
+     * Parse MARC collection from a string into an array.
      *
      * @param string $collection MARC record collection in the format supported by
      * the serialization class
@@ -132,7 +132,7 @@ class MarcXml extends AbstractSerializationFile implements SerializationInterfac
     }
 
     /**
-     * Parse MARCXML string
+     * Parse MARCXML string.
      *
      * @param string $marc MARCXML
      *
@@ -172,7 +172,7 @@ class MarcXml extends AbstractSerializationFile implements SerializationInterfac
     }
 
     /**
-     * Convert record to a MARCXML string
+     * Convert record to a MARCXML string.
      *
      * @param array $record Record data
      *
@@ -243,7 +243,7 @@ class MarcXml extends AbstractSerializationFile implements SerializationInterfac
     }
 
     /**
-     * Load XML into SimpleXMLElement
+     * Load XML into SimpleXMLElement.
      *
      * @param string $xml XML
      *
@@ -288,7 +288,7 @@ class MarcXml extends AbstractSerializationFile implements SerializationInterfac
     }
 
     /**
-     * Open a collection file
+     * Open a collection file.
      *
      * @param string $file File name
      *
@@ -308,7 +308,7 @@ class MarcXml extends AbstractSerializationFile implements SerializationInterfac
     }
 
     /**
-     * Rewind the collection file
+     * Rewind the collection file.
      *
      * @return void
      *
@@ -323,7 +323,7 @@ class MarcXml extends AbstractSerializationFile implements SerializationInterfac
     }
 
     /**
-     * Get next record from the file or an empty string on EOF
+     * Get next record from the file or an empty string on EOF.
      *
      * @return string
      *
