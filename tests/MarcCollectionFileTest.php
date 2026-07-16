@@ -1,7 +1,7 @@
 <?php
 
 /**
- * MarcCollectionFile Test Class
+ * MarcCollectionFile Test Class.
  *
  * PHP version 7
  *
@@ -32,7 +32,7 @@ namespace VuFind\Marc\Test;
 use VuFind\Marc\MarcCollectionFile;
 
 /**
- * MarcCollectionFile Test Class
+ * MarcCollectionFile Test Class.
  *
  * @category VuFind
  * @package  Tests
@@ -45,7 +45,7 @@ class MarcCollectionFileTest extends \PHPUnit\Framework\TestCase
     use Feature\FixtureTrait;
 
     /**
-     * Return collection fixtures for the tests
+     * Return collection fixtures for the tests.
      *
      * @return array
      */
@@ -60,7 +60,7 @@ class MarcCollectionFileTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Test MarcCollectionReader
+     * Test MarcCollectionReader.
      *
      * @param string $fixture Fixture to use
      *
@@ -99,7 +99,7 @@ class MarcCollectionFileTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Test non-existent collection file
+     * Test non-existent collection file.
      *
      * @return void
      */
@@ -112,7 +112,7 @@ class MarcCollectionFileTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Test bad collection file format
+     * Test bad collection file format.
      *
      * @return void
      */
@@ -124,7 +124,7 @@ class MarcCollectionFileTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Test empty collection file
+     * Test empty collection file.
      *
      * @return void
      */
@@ -136,7 +136,7 @@ class MarcCollectionFileTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Test error handling of the ISO2709 serialization canParseCollectionFile method
+     * Test error handling of the ISO2709 serialization canParseCollectionFile method.
      *
      * @return void
      */
@@ -149,7 +149,7 @@ class MarcCollectionFileTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Test error handling of the MARCXML serialization canParseCollectionFile method
+     * Test error handling of the MARCXML serialization canParseCollectionFile method.
      *
      * @return void
      */
@@ -162,7 +162,7 @@ class MarcCollectionFileTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Test error handling of the ISO2709 serialization openCollectionFile method
+     * Test error handling of the ISO2709 serialization openCollectionFile method.
      *
      * @return void
      */
@@ -176,7 +176,7 @@ class MarcCollectionFileTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Test error handling of the MARCXML serialization openCollectionFile method
+     * Test error handling of the MARCXML serialization openCollectionFile method.
      *
      * @return void
      */
@@ -190,7 +190,7 @@ class MarcCollectionFileTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Test message callback
+     * Test message callback.
      *
      * @return void
      */

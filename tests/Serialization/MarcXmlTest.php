@@ -1,7 +1,7 @@
 <?php
 
 /**
- * MarcXml Serialization Test Class
+ * MarcXml Serialization Test Class.
  *
  * PHP version 7
  *
@@ -30,7 +30,7 @@
 namespace VuFindTest\Marc\Serialization;
 
 /**
- * MarcXml Test Class
+ * MarcXml Test Class.
  *
  * @category VuFind
  * @package  Tests
@@ -43,7 +43,7 @@ class MarcXmlTest extends \PHPUnit\Framework\TestCase
     use \VuFind\Marc\Test\Feature\FixtureTrait;
 
     /**
-     * Test rewind
+     * Test rewind.
      *
      * @return void
      */
@@ -55,7 +55,7 @@ class MarcXmlTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Test getNextRecord
+     * Test getNextRecord.
      *
      * @return void
      */

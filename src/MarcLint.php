@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Lint for MARC records
+ * Lint for MARC records.
  *
  * This module is adapted from the MARC::Lint CPAN module for Perl, maintained by
  * Bryan Baldus <eijabb@cpan.org> and available at http://search.cpan.org/~eijabb/
@@ -56,28 +56,28 @@ use function strlen;
 class MarcLint
 {
     /**
-     * Rules used for testing records
+     * Rules used for testing records.
      *
      * @var array
      */
     protected $rules;
 
     /**
-     * A Lint\CodeData object for validating codes
+     * A Lint\CodeData object for validating codes.
      *
      * @var Lint\CodeData
      */
     protected $data;
 
     /**
-     * Warnings generated during analysis
+     * Warnings generated during analysis.
      *
      * @var array
      */
     protected $warnings = [];
 
     /**
-     * Start function
+     * Start function.
      *
      * Set up rules for testing MARC records.
      *

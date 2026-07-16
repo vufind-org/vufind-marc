@@ -41,7 +41,7 @@ namespace VuFind\Marc\Serialization;
 interface SerializationFileInterface
 {
     /**
-     * Check if the serialization class can parse the given MARC collection file
+     * Check if the serialization class can parse the given MARC collection file.
      *
      * @param string $file File name
      *
@@ -50,7 +50,7 @@ interface SerializationFileInterface
     public static function canParseCollectionFile(string $file): bool;
 
     /**
-     * Set message callback
+     * Set message callback.
      *
      * @param callable $callback Message callback
      *
@@ -59,7 +59,7 @@ interface SerializationFileInterface
     public function setMessageCallback(?callable $callback): void;
 
     /**
-     * Open a collection file
+     * Open a collection file.
      *
      * @param string $file File name
      *
@@ -70,7 +70,7 @@ interface SerializationFileInterface
     public function openCollectionFile(string $file): void;
 
     /**
-     * Rewind the collection file
+     * Rewind the collection file.
      *
      * @return void
      *
@@ -79,7 +79,7 @@ interface SerializationFileInterface
     public function rewind(): void;
 
     /**
-     * Get next record from the file or an empty string on EOF
+     * Get next record from the file or an empty string on EOF.
      *
      * @return string
      *
